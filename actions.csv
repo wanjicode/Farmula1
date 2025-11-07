@@ -1,0 +1,154 @@
+filename,label,county,temperature_C,humidity_%,wind_speed_mps,weather_desc,timestamp
+image copy 2.png,collecting_eggs,Kakamega,16.22,91,1.51,light rain,2025-10-23 06:58:39.422352
+image copy 3.png,collecting_eggs,Wajir,25.07,66,4.71,overcast clouds,2025-10-23 06:58:39.422352
+image copy.png,collecting_eggs,Kericho,13.36,93,1.23,overcast clouds,2025-10-23 06:58:39.422352
+image.png,collecting_eggs,Laikipia,15.41,80,3.56,overcast clouds,2025-10-23 06:58:39.422352
+0289d4a8ad6e75d6028352ec73357cd5_portrait-of-ankole-watusi-bighorned-bull-niamey-niger_s=612x612&w=0&k=20&c=79Nu8ut2FDN7R5usOaHyspatWUGfrNCsQvVWJlMFCq8=.jpg,feeding_cows,Mombasa,24.22,88,0,light rain,2025-10-23 06:58:39.423354
+08565d3f7fda2a14b9bf17972c6b5787_africa-harvesting_s=612x612&w=0&k=20&c=owPFo-YLiWhddJDVMgUo2nmShWedkQ2eHUKg6xfTcEE=.jpg,feeding_cows,Kajiado,16.35,82,2.53,broken clouds,2025-10-23 06:58:39.423354
+15a4fd65e924ec748b2a34ae6bf991b4_farmer-working-on-farm-with-dairy-cows_s=612x612&w=0&k=20&c=NAPyv39tFBVKo4sb3o4hmnrz27HHNf3DD27JDxrPo-0=.jpg,feeding_cows,Samburu,15.59,71,1.32,broken clouds,2025-10-23 06:58:39.423354
+171b7686775f10ab8b930fd247141df6_farmer-feeds-cows-with-fresh-grass-in-cowshed-of-dairy-farm_s=612x612&w=0&k=20&c=gZKEkSN2MlHtJ_tDoEeMT6Q_boe9BFH9z8AOzIs0DzE=.jpg,feeding_cows,Kisumu,19.77,83,1.03,light rain,2025-10-23 06:58:39.424363
+18863e9b3cb2bb442ffe46a2658a022a_cattle-feeding-at-a-beef-farm_s=612x612&w=0&k=20&c=N8L6BaW1U_T5J04ssxwA0NcHvW18_-c-YlT_fp4vHX4=.jpg,feeding_cows,Narok,15.7,77,1.67,overcast clouds,2025-10-23 06:58:39.424363
+19728791989024e7e3d8750e866d5633_cattle-feeding-at-a-beef-farm_s=612x612&w=0&k=20&c=RHeAuyiafGHv-5C08IAA_tP6dT04wXS33eQ9B1P_R7c=.jpg,feeding_cows,Kitui,18.04,87,1.21,broken clouds,2025-10-23 06:58:39.424363
+1b58d6035a012f9de832b4aad1e482af_old-maasai-man-watering-his-cattle_s=612x612&w=0&k=20&c=51zyQ3uQIBMnH8TbZ1Sa5zi-iSbk5JqoU5HY9sIUCdk=.jpg,feeding_cows,Siaya,17.49,88,3.14,light rain,2025-10-23 06:58:39.424363
+2747cd680b8d3420821609e300a8ab80_portrait-of-ankole-watusi-bighorned-bull-niamey-niger_s=612x612&w=0&k=20&c=sKFzLY3Svy_oAn_98s7OVt0gZ1VauxbtkgeBGbrYvLU=.jpg,feeding_cows,Nairobi,16.96,67,2.57,broken clouds,2025-10-23 06:58:39.424363
+285b1389a567ace8d3b80d7204fc2619_male-farm-worker-feeding-cows_s=612x612&w=0&k=20&c=frmmqLzwmIXV3mHlZUcyk_pd1FZW5-TxyFBMqyxeWqI=.jpg,feeding_cows,Embu,17.97,74,1.18,overcast clouds,2025-10-23 06:58:39.424363
+289f3f228f8a44d82d5c4d25b1b5f9b3_zebu-cattle-waiting-for-water-by-dug-out-tree-trunk_s=612x612&w=0&k=20&c=zOaJtZ6s5NJopMC0Yv0967chvtVK4F5HMAKSpomA7us=.jpg,feeding_cows,Busia,18.19,90,1.62,light rain,2025-10-23 06:58:39.424363
+3ca8c343c24a69871fbfc029d4ec06b9_ankole-watusi-on-a-big-farm_s=640x640&k=20&c=8LyBGO4XSf2ekUhJ9UhD6NcT34MWR4ZoSIQioeTHqNM=.jpg,feeding_cows,Marsabit,18.55,65,6.58,overcast clouds,2025-10-23 06:58:39.425353
+3e566e1bad43ab2f87bd012b1a4ef6f6_cattle-belonging-to-a-fulani-tribe-family-atakpam%C3%A9-togo-west-africa_s=612x612&w=0&k=20&c=i2IHJwbcAkZIKttd4QLtfo6EUyNGje_OP2HKhIqwrg4=.jpg,feeding_cows,Kakamega,16.22,91,1.51,light rain,2025-10-23 06:58:39.425353
+40e4a86a02a2d8f521e0e5ef14da672d_african-cows-at-the-water-well_s=612x612&w=0&k=20&c=p7v_mIA7v-7LEpyCuDTKudYTwhcZYeOSF9C7our6FB4=.jpg,feeding_cows,Kisii,15.72,82,1.19,overcast clouds,2025-10-23 06:58:39.425353
+4268252635727ae47d6034cc82c73cea_ankole-watusi-cow-eating-a-hay-in-farm_s=640x640&k=20&c=MDhz51pX_VSOo_HoZy_5c2aZzewxqclG7EjIpcc23Pc=.jpg,feeding_cows,Vihiga,17.13,83,1.03,light rain,2025-10-23 06:58:39.425353
+525dc25259f676a75f7f6c6b53f56c8a_the-famous-rwandan-royal-cows_s=612x612&w=0&k=20&c=_vb42E7PL5cBUAnb-1IwUZvklrP9vhQDliaL4em8E44=.jpg,feeding_cows,Mandera,26.44,62,4.08,overcast clouds,2025-10-23 06:58:39.425353
+54ef4d98500891b98d6a27e30e6fa238_portrait-of-ankole-watusi-bighorned-bull-niamey-niger_s=612x612&w=0&k=20&c=SHI5iZ2sj4hlZzc5HyoKx-3OtSZ5yflcicwvwcbuBTA=.jpg,feeding_cows,Baringo,22.38,63,0.09,overcast clouds,2025-10-23 06:58:39.425353
+685a1ddd7b99ca72b89acc6937e4dc9c_ankole-watusi-cow-eating-a-hay-in-farm_s=640x640&k=20&c=gePmucEBD8QpwznBApLMJ9fzdKrKYLZddVUDqxE0I0g=.jpg,feeding_cows,Trans-Nzoia,14.28,96,0.77,light rain,2025-10-23 06:58:39.425353
+6a3457a8c8ecfcc42ead56d51362d3b4_confident-farmer-feeding-cows-with-hay-in-cowshed-of-dairy-farm_s=612x612&w=0&k=20&c=EnedA-LKDOGL3aip3Z523sFwWtq9OvDNXa9xYGdbZ7s=.jpg,feeding_cows,Kirinyaga,19.63,75,0.72,overcast clouds,2025-10-23 06:58:39.425353
+706014658042b94db44080fbc4c629ae_senior-man-feeding-cows-on-farm_s=612x612&w=0&k=20&c=1-AYbEX_DOAFy9ziiThNYl1HiEJ5WT0Sb1-AD3bmfRs=.jpg,feeding_cows,Machakos,15.28,89,0.76,broken clouds,2025-10-23 06:58:39.425353
+758515c900e1924036b69916c6387227_male-rancher-in-a-farm_s=612x612&w=0&k=20&c=IVeCCYUomQW8A7INUeTvhCgcNX_ROGjbT87FE2vp8Tk=.jpg,feeding_cows,Kericho,13.36,93,1.23,overcast clouds,2025-10-23 06:58:39.425353
+796f3946ab3459046a57de292382a2c4_african-woman-farmer-feeding-cow_s=612x612&w=0&k=20&c=zPME3YVINycisZ-hbHUQTyTsf548iy1GD4uHZ_Tr_ic=.jpg,feeding_cows,Kajiado,16.35,82,2.53,broken clouds,2025-10-23 06:58:39.425353
+7de818e0942c60cc160a79a61afd4978_portrait-of-a-man-on-livestock-ranches_s=612x612&w=0&k=20&c=mf0vz_vwVRYcvZvpv-R8HYzMH8S9yt9SZ6Ge2RJWgDA=.jpg,feeding_cows,Meru,17.76,70,0.97,overcast clouds,2025-10-23 06:58:39.425353
+866def9c4c667c1f389fe6983507c0b8_diligent-farmer-working-in-cowshed-engaged-in-breeding-of-milking-holstein-co_s=612x612&w=0&k=20&c=G6SxueGtzFSZ-VnbRzMWwgOVukZSzJcBELv01gOu3PM=.jpg,feeding_cows,Laikipia,15.41,80,3.56,overcast clouds,2025-10-23 06:58:39.425353
+8ea69bc9c83b36fb3a55057b20108d33_busy-man-preparing-hay-for-cows-in-livestock-stall_s=612x612&w=0&k=20&c=Az7jgZsuy5phjdLcTZm4cTs85-7jaNScFw8tQIGIcUE=.jpg,feeding_cows,Bungoma,17.55,88,1.88,overcast clouds,2025-10-23 06:58:39.426867
+8edb308050c6fcccd216ab55e76d8d61_white-cow-grazing-on-a-farm-looks-at-the-camera_s=640x640&k=20&c=SXdkQYDPzIct07rGoEVi5zoi817jOprM4wgpn7ZKTMY=.jpg,feeding_cows,Embu,17.97,74,1.18,overcast clouds,2025-10-23 06:58:39.426867
+97f3fdaf5c2ffdef1aa176d41dd74e91_domestic-livestock-of-the-maasai-tribe-in-a-paddock-against-a-dramatic-sky_s=612x612&w=0&k=20&c=I9pohTXnowHe2SyM3yo2YfRdmcOtHBm7Mr3rMOLduEQ=.jpg,feeding_cows,Isiolo,21.94,60,1.71,overcast clouds,2025-10-23 06:58:39.426867
+9a12b169e985f44058bfcca5babe6faf_calves-of-royal-rwandan-cow_s=612x612&w=0&k=20&c=z2yvdgxly9N6dy-IZ4YAs2pdSS2ihfr5n7Fez9Jsr9E=.jpg,feeding_cows,Mombasa,24.22,88,0,light rain,2025-10-23 06:58:39.426867
+a576912d389fe1ccce5b265972667e01_old-maasai-watering-his-cattle-porini-amboseli-tanzania_s=612x612&w=0&k=20&c=hx1XA8Cqm2EfDi737_IyizSOdxd6cfTtRjY7oGILfIU=.jpg,feeding_cows,Bungoma,17.55,88,1.88,overcast clouds,2025-10-23 06:58:39.426867
+a6ac029c3b409f5a04d6c6fc6b434c1e_man-watering-cows_s=612x612&w=0&k=20&c=YT9uFDDnsMtH36nU8VhjLaVW9JcbR0AY0HRixNu5xUw=.jpg,feeding_cows,Murang'a,16.28,83,0.97,broken clouds,2025-10-23 06:58:39.426867
+b6d2a2accd9b3c96ea605fd80373fe22_farmer-working-on-farm-with-dairy-cows_s=612x612&w=0&k=20&c=ESwUJrj1zx2cDcNd6BmY9Ogf9lfPJeV1qXbyj5BYjmk=.jpg,feeding_cows,Nyandarua,14.37,87,0.5,broken clouds,2025-10-23 06:58:39.426867
+ba008a8fd7d14e602f6fb26f34224091_cattle-feeding-at-a-beef-farm_s=612x612&w=0&k=20&c=UpCPU-dV25iuL_nz0se-IruBTXT3y2ehjEk5ba-ZcXU=.jpg,feeding_cows,Marsabit,18.55,65,6.58,overcast clouds,2025-10-23 06:58:39.426867
+c31628dd42eaedfaa8fc53752dc133b8_domestic-livestock-of-the-maasai-tribe-in-a-paddock_s=612x612&w=0&k=20&c=VteMyUG4k2rBcAVxHzX4e-znVc8AolzRgrgE0LwS934=.jpg,feeding_cows,Kwale,21.72,86,1.78,overcast clouds,2025-10-23 06:58:39.426867
+d1d089a4e50c6b204c1e4b9640fc3e52_portrait-of-man-who-is-feeding-cows_s=612x612&w=0&k=20&c=GAe01Tjf-W2hr387zJaD650DxAW9_HAlzTnAzKhqnE4=.jpg,feeding_cows,Uasin Gishu,12.99,94,2.06,light rain,2025-10-23 06:58:39.427885
+d430900108770974cc061939bcdbf663_africa-mali-ox-close-up_s=640x640&k=20&c=nNBM_2SjswmP-p1v8pEkb-Pp7xunlUbv_VDNZ5XzqH0=.jpg,feeding_cows,Samburu,15.59,71,1.32,broken clouds,2025-10-23 06:58:39.427885
+e9ffc9298473743f4bf5dd5a55faa3f4_maasai-woman-milking-her-cow_s=612x612&w=0&k=20&c=oqwEiSul6eJsTgyFkQfI0n_7Y4ewiBYRIlPodHwjgH8=.jpg,feeding_cows,Kilifi,25.4,81,3.05,overcast clouds,2025-10-23 06:58:39.427885
+f36206b74ab7c135a669d75d959e523e_agricultural-population-working-on-the-farms-between-gondar-and-simien-mountains_s=612x612&w=0&k=20&c=nG2uxe-ZA-r-TIU_kzR9XG57biF53lYuK_dt35HkzdA=.jpg,feeding_cows,Nandi,12.68,95,1.43,overcast clouds,2025-10-23 06:58:39.427885
+giving cows feed.jpg,feeding_cows,Kisii,15.72,82,1.19,overcast clouds,2025-10-23 06:58:39.428891
+image.png,feeding_cows,Kericho,13.36,93,1.23,overcast clouds,2025-10-23 06:58:39.428891
+image copy 2.png,feeding_goats,Elgeyo-Marakwet,14.56,89,0.86,overcast clouds,2025-10-23 06:58:39.430154
+image copy 3.png,feeding_goats,Migori,17.74,79,1.39,overcast clouds,2025-10-23 06:58:39.430154
+image copy 4.png,feeding_goats,Uasin Gishu,12.99,94,2.06,light rain,2025-10-23 06:58:39.430154
+image copy.png,feeding_goats,Kirinyaga,19.63,75,0.72,overcast clouds,2025-10-23 06:58:39.430154
+image.png,feeding_goats,Laikipia,15.41,80,3.56,overcast clouds,2025-10-23 06:58:39.430154
+006ea689e7ab19be28221e56e3c21acc_close-up-view-of-pig-feed-granules-and-piglets-in-background_s=612x612&w=0&k=20&c=QZKHg2AMpvL0hgan8LLs01T_Ro05kGYEOKoSdwJX1oc= copy.jpg,feeding_pigs,Nairobi,16.96,67,2.57,broken clouds,2025-10-23 06:58:39.431152
+006ea689e7ab19be28221e56e3c21acc_close-up-view-of-pig-feed-granules-and-piglets-in-background_s=612x612&w=0&k=20&c=QZKHg2AMpvL0hgan8LLs01T_Ro05kGYEOKoSdwJX1oc=.jpg,feeding_pigs,Kitui,18.04,87,1.21,broken clouds,2025-10-23 06:58:39.431152
+3d161e40acd1b12aa066a8cdd903a73a_happy-with-their-food_s=640x640&k=20&c=pwqv0f4mvA7ltfR1MBfyXFKgqIY2-foiuCWDr9OI3yU=.jpg,feeding_pigs,Elgeyo-Marakwet,14.56,89,0.86,overcast clouds,2025-10-23 06:58:39.432156
+4484cf078f8bbd2047a025c4c3ee1007_a-happy-farm-makes-happy-livestock_s=640x640&k=20&c=bidb654cS_1Wef4i5s2yC-qIvRWHikKnEh6r7MO3P4k=.jpg,feeding_pigs,Tharaka-Nithi,25.48,58,1.49,overcast clouds,2025-10-23 06:58:39.432156
+5c1ccb6de4f357dc9bfd8d844fbe80b9_farmer-feeding-pig-in-organic-rural-farm-agricultural-livestock-industry_s=612x612&w=0&k=20&c=ayWgCKom5V37ZZ0LdyJfpMvlQhGVDUa0w2-HvnTZ-1w=.jpg,feeding_pigs,West Pokot,12.6,81,1.32,light rain,2025-10-23 06:58:39.432156
+61aaaa3cb34de36b9c9643d10e93d81d_veterinarian-doctor-feeding-pigs-at-a-pig-farm_s=612x612&w=0&k=20&c=BqyVFob9GutZ8RVAkGe75hYih9JPCwiHHLnUzEk4Ldw=.jpg,feeding_pigs,Busia,18.19,90,1.62,light rain,2025-10-23 06:58:39.432156
+7dccfbbab283f87b2272b2b55b227d3a_many-piglets-are-eating-prepared-food-in-a-pig-farm-little-piglet-eating-food_s=640x640&k=20&c=trQohe_gZUtH1-Pq7qByg51U-ujsFGlOWygGEDk1ARM=.jpg,feeding_pigs,Nandi,12.68,95,1.43,overcast clouds,2025-10-23 06:58:39.432156
+84e07d41067164144af6f2a307e3f7b5_bearded-farmer-showing-love-and-care-for-his-pigs_s=612x612&w=0&k=20&c=3zG_jhPmfFQ97AlT0Amecj8Zafegqar1FNw_CsdiM3c=.jpg,feeding_pigs,Nyamira,14.07,83,0.86,overcast clouds,2025-10-23 06:58:39.433157
+8b372e5e443a5f04a1b5dfb88cbb5a1d_a-little-piglet-is-in-barn_s=612x612&w=0&k=20&c=LILjiDKBlLLMidQ0TbNUg9erOZn8M6c_v_dIVyLgKOk=.jpg,feeding_pigs,Murang'a,16.28,83,0.97,broken clouds,2025-10-23 06:58:39.433157
+a722890cbd74536028761baaca3ba25a_three-happy-pigs-eating-in-their-pen-in-a-barn_s=612x612&w=0&k=20&c=6aH-2V8fBWiaSwWhW-01ECKk51b75i7NueJQzFQsRWk=.jpg,feeding_pigs,Narok,15.7,77,1.67,overcast clouds,2025-10-23 06:58:39.433157
+a7c9fbf7ee5423a9b379f4f631dd7249_pigs-enjoying-a-meal-on-a-pig-farm_s=612x612&w=0&k=20&c=2jgP_Sz4IJyxdtVhGOEbz7xEDVsbZwRn2ceU_q5r0c0=.jpg,feeding_pigs,Makueni,20.16,86,0.54,overcast clouds,2025-10-23 06:58:39.433157
+bc7776eec025f2a57aeceefd4a44525c_cute-little-piglet_s=612x612&w=0&k=20&c=vy4oJiySESBMyB0-snzaDhXW4dF7CFzbrAnktE48P4Y=.jpg,feeding_pigs,Embu,17.97,74,1.18,overcast clouds,2025-10-23 06:58:39.433157
+bcb0afc555f6cca8eb947c206662daf8_a-small-piglet-in-the-farm-swine-in-a-stall-shallow-depth-of-field_s=612x612&w=0&k=20&c=ieuPsTYKLy8YPB0FIOQbboqPCVZEiVzmdDkNe-A0V2E=.jpg,feeding_pigs,West Pokot,12.6,81,1.32,light rain,2025-10-23 06:58:39.433157
+fcd5a75388fb70f2c07b5287c94f6bdb_the-farm-pigs_s=612x612&w=0&k=20&c=MSTyo9zqkLnm4NrRBEQXnZnXff8D93MvfV7WFmykUIg=.jpg,feeding_pigs,Narok,15.7,77,1.67,overcast clouds,2025-10-23 06:58:39.433157
+ff76d3affc2abfa2b8c0cc840b109a92_piglet-eating-from-a-pile-of-grain-livestock-food_s=612x612&w=0&k=20&c=39gd5CPc83yj2To_UMtqBNFr2a3R2WfqlrETRAkBlLg= copy.jpg,feeding_pigs,Tharaka-Nithi,25.48,58,1.49,overcast clouds,2025-10-23 06:58:39.434154
+ff76d3affc2abfa2b8c0cc840b109a92_piglet-eating-from-a-pile-of-grain-livestock-food_s=612x612&w=0&k=20&c=39gd5CPc83yj2To_UMtqBNFr2a3R2WfqlrETRAkBlLg=.jpg,feeding_pigs,Murang'a,16.28,83,0.97,broken clouds,2025-10-23 06:58:39.434154
+0e5b92bdba014eda0e6276a4b93decd1_4k-video-footage-of-a-young-woman-feeding-chickens-on-a-poultry-farm_s=640x640&k=20&c=ocq9-9N8JtQxPI3oazGiUfDl0qbsAnUcx9oddnaeZ64=.jpg,feeding_poultry,Uasin Gishu,12.99,94,2.06,light rain,2025-10-23 06:58:39.434154
+5293641a453a60a8035c879394b6fb72_eastern-wild-turkey-female-feeding-in-a-wausau-wisconsin-cornfield-in-may_s=612x612&w=0&k=20&c=NLjXM0dc3T5UarT64wQNpuM3OBos01kueYSL-UE-SrU=.jpg,feeding_poultry,Bungoma,17.55,88,1.88,overcast clouds,2025-10-23 06:58:39.435154
+68fd067ff4697e1244eafaf5817525d4_swan_s=612x612&w=0&k=20&c=zqYfsO3cNmRIcrxOrhag3Ta3sj8mm_jfYVg8-Mafh3g=.jpg,feeding_poultry,Nakuru,15.92,88,0.51,overcast clouds,2025-10-23 06:58:39.435154
+7886967be0a6f8a272ccef1ee1623803_happy-preschool-boy-learning-to-feeding-duck-with-grandfather_s=640x640&k=20&c=USEIKYouTSS7hurFHuMaJ0BekHYEdbWDuNgksaXdkXs= copy.jpg,feeding_poultry,Vihiga,17.13,83,1.03,light rain,2025-10-23 06:58:39.435154
+7886967be0a6f8a272ccef1ee1623803_happy-preschool-boy-learning-to-feeding-duck-with-grandfather_s=640x640&k=20&c=USEIKYouTSS7hurFHuMaJ0BekHYEdbWDuNgksaXdkXs=.jpg,feeding_poultry,Makueni,20.16,86,0.54,overcast clouds,2025-10-23 06:58:39.435154
+96f8d0d1d42e30995877866b567b6569_skeptical-ducks-hand-feeding_s=612x612&w=0&k=20&c=oWTQWwQDena57FQs-msLr_rIx7LCywDXgp0VHHj-Vis=.jpg,feeding_poultry,Turkana,27.46,47,3.45,overcast clouds,2025-10-23 06:58:39.435154
+99dc5fd15d44ac703fa9b0ec54ac2f64_feeding-of-wild-birds-near-the-river_s=640x640&k=20&c=VmoDcgKKaeayozRuYqLd2AD8xpLrLd2G97uR-XJ2z-s=.jpg,feeding_poultry,Murang'a,16.28,83,0.97,broken clouds,2025-10-23 06:58:39.435154
+b50452906b444522a044450e8c907a67_egg-laying-hens_s=612x612&w=0&k=20&c=pvOQ2M5ePaSzZssQomDzsl_-XhMMdaW75dgTSZ8J0_M=.jpg,feeding_poultry,Machakos,15.28,89,0.76,broken clouds,2025-10-23 06:58:39.435154
+d83635792d8314a138d6c1921df38ec9_australian-brush-turkey_s=612x612&w=0&k=20&c=HfGunhSd3bvGpbuE39PljJoF9G6Rn27FlEjMlF9mBhI=.jpg,feeding_poultry,Kiambu,16.97,67,2.57,broken clouds,2025-10-23 06:58:39.436159
+e897d0c65fe7d0402e49c06ca4884a25_duck-and-chicken-pecking-grain_s=612x612&w=0&k=20&c=3iOclViKTjQZ3bhXZu3R_roEwItNO-WJVFHLbg-3_38=.jpg,feeding_poultry,Lamu,25.72,79,2.88,overcast clouds,2025-10-23 06:58:39.436159
+ee34d892aafb3914b0d69f2eb6286ba8_man-feeding-chicken-in-rural-madagascar_s=612x612&w=0&k=20&c=3xbvztFgxwkV6NuZEYE8tNPGRFF0vmjA5_bifNPzKCU=.jpg,feeding_poultry,Turkana,27.46,47,3.45,overcast clouds,2025-10-23 06:58:39.436159
+f1051d899bf1dae53e727417977c54e0_breeding-chickens-in-a-poultry-factory_s=640x640&k=20&c=ly_LhqMr4kat1od2D5Wc5ZXUATnhg1qlliHlfK4ao-w=.jpg,feeding_poultry,Samburu,15.59,71,1.32,broken clouds,2025-10-23 06:58:39.436159
+fc6d2239ba33172fbb023d170c3f3ad3_wild-turkey-eating-from-a-bird-feeder_s=612x612&w=0&k=20&c=hxYFzptdvkEpb_M2QQx3etu23h17Rtat1cV8PORU1U0=.jpg,feeding_poultry,Vihiga,17.13,83,1.03,light rain,2025-10-23 06:58:39.436159
+image copy 2.png,feeding_poultry,Migori,17.74,79,1.39,overcast clouds,2025-10-23 06:58:39.436159
+image copy 3.png,feeding_poultry,Samburu,15.59,71,1.32,broken clouds,2025-10-23 06:58:39.436159
+image copy 4.png,feeding_poultry,Vihiga,17.13,83,1.03,light rain,2025-10-23 06:58:39.436159
+image copy 5.png,feeding_poultry,Busia,18.19,90,1.62,light rain,2025-10-23 06:58:39.437153
+image copy 6.png,feeding_poultry,Nandi,12.68,95,1.43,overcast clouds,2025-10-23 06:58:39.437153
+image copy.png,feeding_poultry,Marsabit,18.55,65,6.58,overcast clouds,2025-10-23 06:58:39.437153
+image.png,feeding_poultry,Bomet,14.7,85,0.96,overcast clouds,2025-10-23 06:58:39.437153
+00ec0460f15393d78eeca9c6645a79d2_feeding-animal-groups-sheep-ovis-aries-on-the-national-farm_s=612x612&w=0&k=20&c=Bdn-1MAbeyJyqH24zqW3H4IHxC2-jOhPG2ewDd4rMD8=.jpg,feeding_sheeps,Uasin Gishu,12.99,94,2.06,light rain,2025-10-23 06:58:39.437669
+49b521c76b1f2b176b7b4b2d34190dc4_flock-of-sheep-on-the-rural-farm_s=612x612&w=0&k=20&c=C7ysTBiWlPeg2aM3U5GjJmkj_kgg0dfFsGhie8O0gLY=.jpg,feeding_sheeps,Nairobi,16.96,67,2.57,broken clouds,2025-10-23 06:58:39.438696
+8d3165c3bd6d2adbad2e7175834dd760_brown-sheep-is-smelling-a-hand_s=612x612&w=0&k=20&c=AYQt3gGimMPbxQKAMX0zyq7y6qQsRMfzz-96l1GwkKQ=.jpg,feeding_sheeps,Kajiado,16.35,82,2.53,broken clouds,2025-10-23 06:58:39.438696
+a91f2fc316b1c5d8bd322b1f976335cb_farm-mammals_s=612x612&w=0&k=20&c=lguEBZBK13CmRmVuKLiHELucHb_h1Gf4UB14Bmc7gkA=.jpg,feeding_sheeps,Makueni,20.16,86,0.54,overcast clouds,2025-10-23 06:58:39.439690
+d0546c555fc77f5ff5d4e287023e0cd3_childs-hands-feeding-goat-top-view_s=612x612&w=0&k=20&c=El5S-Q0WEECdEh-UT58CYl6PUnm_wGAhOEON5zx49Ko=.jpg,feeding_sheeps,Kirinyaga,19.63,75,0.72,overcast clouds,2025-10-23 06:58:39.439690
+d5b74e28663eff9beb571362c09ed760_goat-on-a-dairy-farm_s=612x612&w=0&k=20&c=S58qGg67Ik1sgyupysxo97PH0nEuWf5QNpOwwnDnF0c=.jpg,feeding_sheeps,Narok,15.7,77,1.67,overcast clouds,2025-10-23 06:58:39.439690
+f26f8d133d15b816116ff88a19adbbe6_sheep-eating-green-grass-from-hands_s=612x612&w=0&k=20&c=ICVEW_wsqyHcoZzNmIdy0YHbnqeykk-JdpK_fk2v5bM=.jpg,feeding_sheeps,Mombasa,24.22,88,0,light rain,2025-10-23 06:58:39.444111
+feeding sheep.jpg,feeding_sheeps,Siaya,17.49,88,3.14,light rain,2025-10-23 06:58:39.445113
+image copy.png,feeding_sheeps,Tana River,24.23,84,2.5,broken clouds,2025-10-23 06:58:39.445113
+image.png,feeding_sheeps,Garissa,24.62,75,3.38,broken clouds,2025-10-23 06:58:39.445113
+14d792f23e15fa3b66490c8702c7a4fc_vet-injected-cows_s=612x612&w=0&k=20&c=00igTdPySh6MTDPrY4HRN3_hNk2_jNBNv_DJMLt-T7I=.jpg,medications,Siaya,17.49,88,3.14,light rain,2025-10-23 06:58:39.446109
+33efa5ecb326054ddd4aa6da3ecada6a_gloved-hands-of-healthcare-worker-filling-in-syringe-with-new-vaccine_s=612x612&w=0&k=20&c=ua-0G0ve9AIjhDQVJ53mWhVPoXFN24tEFHxhxKB4F2Q=.jpg,medications,Mandera,26.44,62,4.08,overcast clouds,2025-10-23 06:58:39.446109
+39899dce24e2706615f1e63432fdbfa9_veterinarian-working-at-a-cattle-farm-holding-a-vaccine_s=612x612&w=0&k=20&c=oeowV4i6lSlzcJYCH1gPCAn-8S9lw2YQa-p6DR0YeVY=.jpg,medications,Elgeyo-Marakwet,14.56,89,0.86,overcast clouds,2025-10-23 06:58:39.446109
+41e02e7e6d501315d2fcecd915bd5ea2_cows_s=612x612&w=0&k=20&c=dfsOD__-s-T1FrwIBDM3Vhmdtl_QQE6W5wt6uJ6ZIfs=.jpg,medications,Taita-Taveta,15.7,79,1.43,overcast clouds,2025-10-23 06:58:39.446109
+4c99333c83968c405c8731a21954b3c9_cowboy_s=612x612&w=0&k=20&c=5MiqbetejVehuaZoqfswCFKDXpcWmZAywGaNQU3PqAU=.jpg,medications,Makueni,20.16,86,0.54,overcast clouds,2025-10-23 06:58:39.447106
+55266e1248dcff55a3f1da3b850662c4_man-veterinarian-with-syringe-inject-cow-vector_s=612x612&w=0&k=20&c=9rP3xh2E_JOhwDgVCnpDvH1REqFX18Ptw5Nb2N8WVjc=.jpg,medications,Laikipia,15.41,80,3.56,overcast clouds,2025-10-23 06:58:39.447106
+5ca5624b6edc2da0880988871fc33e5f_beef-cattle_s=612x612&w=0&k=20&c=O8itXgKmJhxoAhWS92gnEGnusf9UqX_Dbq9-PpIDjJQ=.jpg,medications,Embu,17.97,74,1.18,overcast clouds,2025-10-23 06:58:39.447106
+72fd7619ee00797673090662c4fc2eeb_caucasian-doctor-with-syringe-on-farm_s=640x640&k=20&c=0cOAEyMb6zE92tMM_PFpC0_YurDjxJUY8dsZBewU9yg=.jpg,medications,Nyamira,14.07,83,0.86,overcast clouds,2025-10-23 06:58:39.447631
+81c0beba067083aad01cf34a50718080_male-cow-veterinarian-at-farm-takes-analyzes_s=612x612&w=0&k=20&c=DDVaT7K3FU4-PQHzyhaVM3NJGhb1_RTEbScP2lhsA2A=.jpg,medications,Makueni,20.16,86,0.54,overcast clouds,2025-10-23 06:58:39.447631
+8b3268d4c2f7b8cfd26165c0b2492c6f_farming-injecting-sick-cow-with-vaccine_s=612x612&w=0&k=20&c=ZEDDOnug7PHGqjCr-D0JMrt8WiC-dZI0I1buOwzjspw=.jpg,medications,Migori,17.74,79,1.39,overcast clouds,2025-10-23 06:58:39.447631
+907d019a655c22e96200a696bc64ea4e_veterinarian-injected-a-calf-with-injectable-vitamins-and-minerals_s=640x640&k=20&c=lwCX56xPITsHa65Vi8dCRovb50TXYdwmNokoT4ETxsI=.jpg,medications,Lamu,25.72,79,2.88,overcast clouds,2025-10-23 06:58:39.448665
+92b54888ab32802c0d31c73c25a86070_cleaning-the-cattles-at-livestock-market_s=612x612&w=0&k=20&c=dWrJpXU_GQyHJmPvUDsZsP67z0zK0i2Fa5HUQe8m_Lg=.jpg,medications,Nairobi,16.96,67,2.57,broken clouds,2025-10-23 06:58:39.448665
+a1ff5315cd3fe2a0fbb3d43f8ba6ba04_treatment-to-combat-foot-and-mouth-disease_s=612x612&w=0&k=20&c=jOLBoVpbnxaYvg6_ZQ6fZ57HwpeZVPJC01LHN6aEVHc=.jpg,medications,Machakos,15.28,89,0.76,broken clouds,2025-10-23 06:58:39.448665
+a5f2f5ad5511cab2957f058017554145_vet-injected-cows_s=612x612&w=0&k=20&c=EbRlmcB3ZG5GZdXKezLiQGsdA36a68lE_gR5_5CYjBI=.jpg,medications,Isiolo,21.94,60,1.71,overcast clouds,2025-10-23 06:58:39.448665
+b204357cbf2a49d2884dbeee32c67d1e_the-baby-rabbit-was-drinking-milk-from-a-syringe-by-the-veterinary_s=612x612&w=0&k=20&c=bcVW83RHJ8B1tRh4y1dD1ln4OSh0Xw-jyHakS-wlZkw=.jpg,medications,Baringo,22.38,63,0.09,overcast clouds,2025-10-23 06:58:39.448665
+b25b951d655dd157836be2c1d9ce594a_dry-cow-therapy_s=612x612&w=0&k=20&c=tO0K1Jyt5k9qAo9HxQPuS4ZGR2mUSZKxJIgPGDiK1I0=.jpg,medications,Mandera,26.44,62,4.08,overcast clouds,2025-10-23 06:58:39.449699
+b45553ce256b2298dae5e0cf6e1a5c93_veterinary-surgeon-treating-cattle-in-a-farm-yard_s=612x612&w=0&k=20&c=4Wyt2tIXCv45LTKyvbhoczCcF6qveB8gZjzKIn99elA=.jpg,medications,Tharaka-Nithi,25.48,58,1.49,overcast clouds,2025-10-23 06:58:39.449699
+b82f9f344a60f35682e3b66aeea5a2d7_the-baby-rabbit-was-drinking-milk-from-a-syringe-by-the-veterinary_s=612x612&w=0&k=20&c=kLerHUd0scETDKYf9SGQ2PPViO5Fj5ttwPcl9ueWRpM=.jpg,medications,Busia,18.19,90,1.62,light rain,2025-10-23 06:58:39.449699
+bbee4860772fa522950d3b1aeb3d9096_prevention-of-lumpy-skin-disease-in-livestock_s=612x612&w=0&k=20&c=hQ8Hj1XJkXNUE9LWsxCULblGekCzlyIMv419TdpVEFc=.jpg,medications,Kajiado,16.35,82,2.53,broken clouds,2025-10-23 06:58:39.449699
+e9a4fb1de60daefff1c8b9284d5a4d7d_cattle-vaccination_s=612x612&w=0&k=20&c=3tWCQ-kauAgnGzuUxME82ipyTxh2cZoQe9RJHhAYnsg= copy.jpg,medications,Laikipia,15.41,80,3.56,overcast clouds,2025-10-23 06:58:39.449699
+e9a4fb1de60daefff1c8b9284d5a4d7d_cattle-vaccination_s=612x612&w=0&k=20&c=3tWCQ-kauAgnGzuUxME82ipyTxh2cZoQe9RJHhAYnsg=.jpg,medications,Homa Bay,19.74,81,2.85,overcast clouds,2025-10-23 06:58:39.449699
+ece4c7a367d099f95e4b0049963fe237_veterinarian-at-farm-cattle-at-farm-with-dairy-cows_s=612x612&w=0&k=20&c=WeoGAjJn5rU6tDwHPXS-GlUlvjc7YuXhM4SAIBupZaI= copy.jpg,medications,Samburu,15.59,71,1.32,broken clouds,2025-10-23 06:58:39.449699
+ece4c7a367d099f95e4b0049963fe237_veterinarian-at-farm-cattle-at-farm-with-dairy-cows_s=612x612&w=0&k=20&c=WeoGAjJn5rU6tDwHPXS-GlUlvjc7YuXhM4SAIBupZaI=.jpg,medications,Kitui,18.04,87,1.21,broken clouds,2025-10-23 06:58:39.450730
+image copy 2.png,medications,Nyamira,14.07,83,0.86,overcast clouds,2025-10-23 06:58:39.450730
+image copy.png,medications,Bungoma,17.55,88,1.88,overcast clouds,2025-10-23 06:58:39.450730
+image.png,medications,Vihiga,17.13,83,1.03,light rain,2025-10-23 06:58:39.450730
+0c18e28f40741d32b9fc5826b8f82e91_african-woman-milking-a-cow-ethiopia-africa_s=612x612&w=0&k=20&c=KHIPjWgyH_YwcYyJv8SZzV33VxZNjCOp5ds7OFPQhAA=.jpg,milking_cows,Vihiga,17.13,83,1.03,light rain,2025-10-23 06:58:39.451726
+1c1034f8b04bfbe6c13cd57238651a15_cow-being-milked-by-hand_s=612x612&w=0&k=20&c=AsPlUJcH3aMifjC3NyffrWca1jVkXcS8drz45hhsLFQ=.jpg,milking_cows,Kirinyaga,19.63,75,0.72,overcast clouds,2025-10-23 06:58:39.451726
+2ced508ce9031135364d189b52664ff3_african-man-milking-a-cow-outdoors-while-is-grazing_s=640x640&k=20&c=CFgDOaxVsq2Qn_EjyKMvhU7FQnF-GczKNe_x7EDu-qY=.jpg,milking_cows,Nyeri,15.26,86,0.75,overcast clouds,2025-10-23 06:58:39.453318
+3926fd7c09e406ba4299285c438f8961_maasai-woman-milking-her-cow_s=612x612&w=0&k=20&c=xsnigci2J9OytEsi6CveFM8U530YsiQurBiIQj4_0uY=.jpg,milking_cows,Kitui,18.04,87,1.21,broken clouds,2025-10-23 06:58:39.454490
+42915c09cf6d7b63cf899d74e1d83ffb_maasai-woman-milking-a-cow_s=612x612&w=0&k=20&c=8kINSPlyo8-xlC5ljYqhtaPXW9pM03FxyTJ9CLzNHXA=.jpg,milking_cows,Migori,17.74,79,1.39,overcast clouds,2025-10-23 06:58:39.455619
+48823b21abeaa95eb17f814f345f513a_maasai-woman-milking-her-cow-in-a-centre-of-her-home-boma_s=612x612&w=0&k=20&c=YW0mP85eMWbEUnPqEHMyptHORG_MY-oQa4X-XYqX3-c=.jpg,milking_cows,Laikipia,15.41,80,3.56,overcast clouds,2025-10-23 06:58:39.456292
+53914f185c65d2b8ee187614f6a621cd_cows-milk-extraction-in-chad_s=640x640&k=20&c=CvoEmnZmR6wRJqauFd0n5pL2h0Cp5r9QawIjYxoP1Bw=.jpg,milking_cows,Kirinyaga,19.63,75,0.72,overcast clouds,2025-10-23 06:58:39.457316
+acea4eafa91dd49a5eded7dbfbec2c08_in_s=612x612&w=0&k=20&c=ksswO8yUZ3pVGMdsXuwtfVxSW8bQbwD_heWItHXblnI=.jpg,milking_cows,Mombasa,24.22,88,0,light rain,2025-10-23 06:58:39.457316
+be0bf213a0ee06fb39d446bd97741a57_milking-ankole-cows-kitwa-uganda_s=612x612&w=0&k=20&c=I7xn0iivXw05L5IUjqoPuJHN-6IROt1s3dY2m0kJ4Ck=.jpg,milking_cows,Kakamega,16.22,91,1.51,light rain,2025-10-23 06:58:39.458580
+db323adc44efc1d8d6d12a46b68fddb1_maasai-woman-milking-cow-with-calf-watching_s=612x612&w=0&k=20&c=3PXtk0qOfUZ51M3ovSCYhjRj2Thx0wBsxUPPpUlFlkg=.jpg,milking_cows,Vihiga,17.13,83,1.03,light rain,2025-10-23 06:58:39.459613
+e5da6d6bc1fb1be446348c6678dffa57_milking_s=612x612&w=0&k=20&c=KeKXYLgPPRswq_y8gPvn5Da4alaVAao85r7L0WPKaac=.jpg,milking_cows,Kirinyaga,19.63,75,0.72,overcast clouds,2025-10-23 06:58:39.459613
+e9ffc9298473743f4bf5dd5a55faa3f4_maasai-woman-milking-her-cow_s=612x612&w=0&k=20&c=oqwEiSul6eJsTgyFkQfI0n_7Y4ewiBYRIlPodHwjgH8=.jpg,milking_cows,Kakamega,16.22,91,1.51,light rain,2025-10-23 06:58:39.459613
+image copy.png,milking_cows,Makueni,20.16,86,0.54,overcast clouds,2025-10-23 06:58:39.460649
+image.png,milking_cows,Narok,15.7,77,1.67,overcast clouds,2025-10-23 06:58:39.460649
+milk cow .jpg,milking_cows,Kakamega,16.22,91,1.51,light rain,2025-10-23 06:58:39.462638
+milking a cow.jpg,milking_cows,Elgeyo-Marakwet,14.56,89,0.86,overcast clouds,2025-10-23 06:58:39.462638
+milking cows.jpg,milking_cows,Kisii,15.72,82,1.19,overcast clouds,2025-10-23 06:58:39.464009
+0bd7d91c4623d4aa9107ef7c2b5339e7_very-young-black-and-white-calf-lies-in-straw_s=612x612&w=0&k=20&c=IQSsvxDFCLpKKFuPGm6bDE3yrf98wNnmmBsHpVCYGO8=.jpg,tagging_animals,Baringo,22.38,63,0.09,overcast clouds,2025-10-23 06:58:39.465034
+43da9afc6a7fba960631c233e3615d02_tagging-and-branding-cattle_s=612x612&w=0&k=20&c=UWe1o4riGp3AQQya1ZT3uyCFmcdxkz2eDumvUrLLxtE=.jpg,tagging_animals,Machakos,15.28,89,0.76,broken clouds,2025-10-23 06:58:39.466047
+5baba3c3bd24a1ca51953e2ff6dbc710_cow-standing-in-mud_s=612x612&w=0&k=20&c=tLe2mZYllTaK5qSGDasmcK4f-baIauTSFuRldito_yA=.jpg,tagging_animals,Laikipia,15.41,80,3.56,overcast clouds,2025-10-23 06:58:39.466047
+66f01562b764d81e8e3ad4837e8a5706_brown-alpaca-chewing-hay-in-profile-view_s=612x612&w=0&k=20&c=EnfQ2euizwtT0zwHoRx8SpI7-3OXD4_xkHKdq24O0vY=.jpg,tagging_animals,Makueni,20.16,86,0.54,overcast clouds,2025-10-23 06:58:39.467032
+7f7ec42237f7f91bd0cf8a3dd267f8e2_headshot-of-a-young-calf-eating-pasture_s=640x640&k=20&c=UJQIiZqlmBPm97BkLHgcvRvNv5XIQOrsOWASpc7_PCQ=.jpg,tagging_animals,Murang'a,16.28,83,0.97,broken clouds,2025-10-23 06:58:39.467032
+80b875b9fb676b828ad1d5fe5a5cf5b4_veterinary-surgeon-treating-cattle-in-a-farm-yard_s=612x612&w=0&k=20&c=-lnkTPGdnrkh0TxfjtG7I1uqiFCYQK0z9-didEocM2Q=.jpg,tagging_animals,Tharaka-Nithi,25.48,58,1.49,overcast clouds,2025-10-23 06:58:39.467547
+9eca49877b91d9ceaa5d041da2b0ea89_man-dooing-cow-tag-number-in-cowshed-india_s=640x640&k=20&c=XGL2FAAbjvM666vWybq_6EqyGdM8pNpzA-Ng-OSybrs=.jpg,tagging_animals,Lamu,25.72,79,2.88,overcast clouds,2025-10-23 06:58:39.467547
+a6bf4ac45d1497422ccc10b8fbfe4fdd_very-young-black-and-white-calf-lies-in-straw_s=612x612&w=0&k=20&c=YO5DwOrzskaPdDH8kdeOdDz7yHNn4ceFOWdQRQr52bs=.jpg,tagging_animals,Nairobi,16.96,67,2.57,broken clouds,2025-10-23 06:58:39.468571
+b26dc6b68de2b4580989b52c10bf1f3b_cow-on-green-grass_s=612x612&w=0&k=20&c=9N9QMk6zJDHy3JUi6FvmLgLRoH4YDjKW8xu-qkBNOiw=.jpg,tagging_animals,Siaya,17.49,88,3.14,light rain,2025-10-23 06:58:39.468571
+c1baf953dbacad992a7a04b975f63405_prevention-of-lumpy-skin-disease-in-livestock_s=612x612&w=0&k=20&c=JJAcGBZxqDJe3ZaUVS8shMYq4QdVS4ior95qnQ3VH_E=.jpg,tagging_animals,Wajir,25.07,66,4.71,overcast clouds,2025-10-23 06:58:39.468571
+d5eb2c20f7c86e453b5f80f9c970c517_very-young-black-and-white-calf-lies-in-straw_s=612x612&w=0&k=20&c=QpH_9r9VrAB3VQ5b249kS037kF6WUEtkBRFnCbDLL6A= copy 2.jpg,tagging_animals,Nandi,12.68,95,1.43,overcast clouds,2025-10-23 06:58:39.468571
+d5eb2c20f7c86e453b5f80f9c970c517_very-young-black-and-white-calf-lies-in-straw_s=612x612&w=0&k=20&c=QpH_9r9VrAB3VQ5b249kS037kF6WUEtkBRFnCbDLL6A= copy.jpg,tagging_animals,Kisii,15.72,82,1.19,overcast clouds,2025-10-23 06:58:39.468571
+d5eb2c20f7c86e453b5f80f9c970c517_very-young-black-and-white-calf-lies-in-straw_s=612x612&w=0&k=20&c=QpH_9r9VrAB3VQ5b249kS037kF6WUEtkBRFnCbDLL6A=.jpg,tagging_animals,Kilifi,25.4,81,3.05,overcast clouds,2025-10-23 06:58:39.470014
+dcf364a20b48403d6aa79cd13600961a_little-lamb-alone_s=612x612&w=0&k=20&c=FArc65x8kj3jMBjIcuXKwLWuuEdrOxsxUVFmZbxyNh8=.jpg,tagging_animals,Baringo,22.38,63,0.09,overcast clouds,2025-10-23 06:58:39.470014
+e6cd75d7c66edbe55e33bb19f6388fd0_mostviertel-region-of-austria_s=612x612&w=0&k=20&c=yuYwJV8lUGMK6vAuoTNZGhvNk_4ZFpnZvwZQTGbxh34=.jpg,tagging_animals,Marsabit,18.55,65,6.58,overcast clouds,2025-10-23 06:58:39.470014
+e83baf91e2a84259fcb6d04125f311b5_very-young-black-and-white-calf-lies-in-straw_s=612x612&w=0&k=20&c=aeZ7nx_jSflNCwWFLcAC3xZiHho24m2LJMtwumqqsQM=.jpg,tagging_animals,Bomet,14.7,85,0.96,overcast clouds,2025-10-23 06:58:39.471073
+image.png,tagging_animals,Makueni,20.16,86,0.54,overcast clouds,2025-10-23 06:58:39.471073
