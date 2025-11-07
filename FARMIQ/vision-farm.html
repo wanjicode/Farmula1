@@ -1,0 +1,1922 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farm IQ - Crop Yield Prediction Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-green: #2e7d32;
+            --light-green: #4caf50;
+            --lighter-green: #e8f5e9;
+            --orange: #ff9800;
+            --dark-orange: #f57c00;
+            --light-orange: #ffe0b2;
+            --white: #ffffff;
+            --light-gray: #f5f5f5;
+            --medium-gray: #e0e0e0;
+            --dark-gray: #424242;
+            --text-dark: #212121;
+            --text-light: #757575;
+            --red: #f44336;
+            --yellow: #ffeb3b;
+            --ai-dark-green: #2E8B57; /* Used for AI chat */
+            --ai-light-green: #32CD32; /* Used for AI chat */
+            --ai-bg-light: #f8f9fa; /* Used for AI chat */
+        }
+
+        body {
+            background: linear-gradient(to bottom, var(--lighter-green), var(--light-orange));
+            color: var(--text-dark);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-green);
+        }
+
+        .logo i {
+            font-size: 28px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-green);
+        }
+
+        .try-btn {
+            background-color: var(--orange);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .try-btn:hover {
+            background-color: var(--dark-orange);
+        }
+
+        /* Dashboard Controls */
+        .dashboard-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 30px 0 20px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .page-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary-green);
+        }
+
+        .filters {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 8px 16px;
+            border: 1px solid var(--medium-gray);
+            background-color: var(--white);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            min-width: 80px; /* Ensure consistent width */
+        }
+
+        .filter-btn.active {
+            background-color: var(--primary-green);
+            color: white;
+            border-color: var(--primary-green);
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            background-color: var(--white);
+            border-radius: 5px;
+            padding: 8px 15px;
+            border: 1px solid var(--medium-gray);
+        }
+
+        .search-bar input {
+            border: none;
+            outline: none;
+            width: 200px;
+            padding: 5px;
+        }
+
+        .select-filter {
+            padding: 8px 15px;
+            border: 1px solid var(--medium-gray);
+            border-radius: 5px;
+            background-color: var(--white);
+            cursor: pointer;
+            min-width: 150px;
+        }
+
+        /* Camera Grid */
+        .camera-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .camera-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+        
+        /* Disabled Camera State */
+        .camera-card.disabled {
+            opacity: 0.6;
+            filter: grayscale(80%);
+            pointer-events: none;
+            cursor: default;
+        }
+
+        .camera-card:hover:not(.disabled) {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+        }
+
+        .camera-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            border-bottom: 1px solid var(--medium-gray);
+        }
+
+        .camera-location {
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .severity-indicator {
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            color: white;
+            min-width: 60px;
+            text-align: center;
+        }
+
+        .severity-low {
+            background-color: var(--light-green);
+        }
+
+        .severity-medium {
+            background-color: var(--yellow);
+            color: var(--text-dark);
+        }
+
+        .severity-high {
+            background-color: var(--red);
+        }
+
+        .camera-feed {
+            height: 180px;
+            background-color: var(--dark-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .disabled-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            z-index: 5;
+        }
+
+        .camera-feed video, .camera-feed img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .camera-info {
+            padding: 15px;
+        }
+
+        .timestamp {
+            font-size: 12px;
+            color: var(--text-light);
+            margin-bottom: 10px;
+        }
+
+        .camera-status {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .status-badge {
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .status-active {
+            background-color: var(--lighter-green);
+            color: var(--primary-green);
+        }
+        
+        .status-disabled {
+            background-color: var(--medium-gray);
+            color: var(--dark-gray);
+        }
+
+        .status-solved {
+            background-color: var(--light-gray);
+            color: var(--text-light);
+        }
+
+        .view-details {
+            color: var(--primary-green);
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        /* Camera Management */
+        .camera-management {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary-green);
+            margin-bottom: 20px;
+        }
+
+        .management-actions {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .action-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background-color: var(--light-gray);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .action-btn:hover {
+            background-color: var(--medium-gray);
+        }
+
+        .action-btn.primary {
+            background-color: var(--primary-green);
+            color: white;
+        }
+
+        .action-btn.primary:hover {
+            background-color: var(--light-green);
+        }
+
+        /* Modal Overlays (Combined Styles) */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background-color: var(--white);
+            border-radius: 10px;
+            width: 90%;
+            max-width: 500px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            transform: translateY(20px);
+            transition: transform 0.3s;
+        }
+        
+        #issueModal .modal-content {
+            max-width: 900px; /* Increased max width for details */
+        }
+        
+        #manageCamerasModal .modal-content {
+            max-width: 800px;
+        }
+
+
+        .modal-overlay.active .modal-content {
+            transform: translateY(0);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid var(--medium-gray);
+        }
+
+        .modal-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-green);
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--text-light);
+        }
+
+        .modal-body {
+            padding: 20px;
+        }
+        
+        /* Camera Setup Modal Specific Styles */
+        .setup-group {
+            margin-bottom: 15px;
+        }
+        
+        .setup-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .setup-group input, .setup-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--medium-gray);
+            border-radius: 5px;
+            outline: none;
+        }
+        
+        .setup-group video {
+            width: 100%;
+            height: auto;
+            max-height: 250px;
+            background: var(--dark-gray);
+            border-radius: 5px;
+        }
+
+        .setup-btn-group {
+            display: flex;
+            justify-content: flex-end;
+            padding-top: 10px;
+        }
+        
+        .setup-btn-group button {
+            margin-left: 10px;
+        }
+        
+        /* Management List Styles */
+        .management-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--medium-gray);
+            gap: 15px;
+        }
+        .management-item:last-child {
+            border-bottom: none;
+        }
+        .camera-name-manage {
+            font-weight: 600;
+            flex-grow: 1;
+            flex-shrink: 0;
+            min-width: 150px;
+        }
+        .camera-status-manage {
+            margin-right: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-light);
+            text-align: right;
+            min-width: 100px;
+        }
+        .management-actions-row {
+            display: flex;
+            gap: 10px;
+            flex-shrink: 0;
+        }
+        .management-actions-row button {
+            padding: 6px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 13px;
+            border: 1px solid var(--medium-gray);
+            transition: background-color 0.2s;
+            min-width: 80px;
+        }
+        .management-actions-row .delete-btn {
+            background-color: var(--red);
+            color: white;
+            border-color: var(--red);
+        }
+        .management-actions-row .delete-btn:hover {
+            background-color: #d32f2f;
+        }
+        .management-actions-row .disable-btn {
+            background-color: var(--orange);
+            color: white;
+            border-color: var(--orange);
+        }
+        .management-actions-row .disable-btn.active {
+            background-color: var(--light-green);
+            border-color: var(--light-green);
+        }
+        .management-actions-row .disable-btn:hover {
+            opacity: 0.9;
+        }
+        
+        /* Issue Modal Detailed Styles */
+        #issueModal .modal-title {
+            color: var(--primary-green);
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .details-section h3 {
+            color: var(--primary-green);
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+            border-bottom: 1px solid var(--lighter-green);
+            padding-bottom: 5px;
+        }
+        
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive grid for details */
+            gap: 15px;
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: var(--light-gray);
+            border-radius: 10px;
+            border: 1px solid var(--medium-gray);
+        }
+
+        .details-grid p {
+            font-size: 0.95rem;
+            color: var(--text-dark);
+        }
+
+        .details-grid strong {
+            color: var(--dark-gray);
+        }
+
+        .description-box {
+            background-color: var(--lighter-green);
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 5px solid var(--primary-green);
+            margin-bottom: 20px;
+            color: var(--text-dark);
+            font-style: italic;
+            line-height: 1.5;
+            font-size: 1rem;
+        }
+
+        .image-gallery {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+            border-bottom: 1px solid var(--medium-gray);
+        }
+
+        .image-gallery img {
+            min-width: 180px;
+            height: 110px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 2px solid var(--medium-gray);
+            transition: transform 0.2s, border-color 0.2s;
+            cursor: pointer;
+        }
+
+        .image-gallery img:hover {
+            transform: scale(1.03);
+            border-color: var(--primary-green);
+        }
+
+        .mitigation-section {
+            padding: 20px;
+            background-color: var(--light-orange);
+            border-radius: 10px;
+            border: 1px solid var(--dark-orange);
+        }
+
+        .mitigation-section h3 {
+            color: var(--dark-orange);
+            border-bottom: 1px solid var(--orange);
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .mitigation-status {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            font-weight: bold;
+            color: var(--text-dark);
+            font-size: 1.1rem;
+        }
+
+        .mitigation-status .status-icon {
+            font-size: 1.8rem;
+        }
+
+        .status-icon.pending {
+            color: var(--dark-orange);
+        }
+        
+        .status-icon.resolved {
+            color: var(--light-green);
+        }
+
+        .mitigation-section textarea {
+            width: 100%;
+            min-height: 100px;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid var(--medium-gray);
+            resize: vertical;
+            margin-bottom: 15px;
+            font-size: 1rem;
+            transition: border-color 0.2s;
+        }
+
+        .mitigation-section textarea:focus {
+            border-color: var(--primary-green);
+            outline: none;
+        }
+
+        .record-btn {
+            background-color: var(--dark-orange);
+            color: var(--white);
+            border: none;
+            padding: 12px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            font-weight: 600;
+            width: 100%;
+            font-size: 1.1rem;
+        }
+
+        .record-btn:hover {
+            background-color: #c76700;
+            box-shadow: 0 4px 10px rgba(245, 124, 0, 0.4);
+        }
+        
+        .modal-footer {
+            padding: 10px 20px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-footer .nav-arrows {
+            display: flex;
+            gap: 10px;
+        }
+
+        .modal-footer .nav-arrow {
+            cursor: pointer;
+            color: var(--primary-green);
+            font-size: 18px;
+            padding: 5px;
+            border: 1px solid var(--medium-gray);
+            border-radius: 5px;
+            transition: background-color 0.2s;
+        }
+
+        .modal-footer .nav-arrow:hover {
+            background-color: var(--lighter-green);
+        }
+
+        .modal-footer .see-all-btn {
+            color: var(--primary-green);
+            text-decoration: underline;
+            cursor: pointer;
+            margin-right: 15px;
+            font-weight: 500;
+        }
+
+        .modal-footer .record-btn {
+            width: auto;
+            padding: 8px 15px;
+            font-size: 1rem;
+        }
+        
+        @media (max-width: 600px) {
+            .management-item {
+                flex-wrap: wrap;
+                align-items: flex-start;
+            }
+            .camera-name-manage {
+                min-width: 100%;
+                margin-bottom: 5px;
+            }
+            .camera-status-manage {
+                order: 2;
+                margin-right: 0;
+                text-align: left;
+                min-width: 100px;
+            }
+            .management-actions-row {
+                order: 3;
+                width: 100%;
+                justify-content: space-between;
+            }
+            
+            #issueModal .modal-content {
+                margin: 20px auto;
+            }
+            
+            .details-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-footer {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .modal-footer .record-btn {
+                width: 100%;
+            }
+        }
+        
+        /* ------------------------------------------------------------------ */
+        /* AI Assistant Widget Styles */
+        /* ------------------------------------------------------------------ */
+
+        .chat-trigger {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--primary-green);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            z-index: 1001; /* Above modals */
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+        .chat-trigger:hover {
+            background-color: var(--light-green);
+            transform: scale(1.05);
+        }
+        .chat-trigger i {
+            font-size: 20px;
+        }
+
+        .chat-widget-container {
+            position: fixed;
+            bottom: 100px; /* Position above the trigger */
+            right: 30px;
+            width: 380px;
+            height: 600px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.4);
+            display: flex;
+            flex-direction: column;
+            z-index: 1002;
+            overflow: hidden;
+            transform: scale(0.5);
+            opacity: 0;
+            pointer-events: none;
+            transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+        }
+
+        .chat-widget-container.active {
+            transform: scale(1);
+            opacity: 1;
+            pointer-events: auto;
+        }
+        
+        /* MERGED CHAT SYSTEM STYLES */
+        .chat-header {
+            background: linear-gradient(135deg, var(--ai-dark-green) 0%, var(--ai-light-green) 50%, #228B22 100%);
+            color: white; padding: 15px; text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-bottom: 2px solid #1c6b34;
+        }
+        .chat-header h1 { font-size: 22px; font-weight: bold; }
+        .chat-header p { font-size: 13px; opacity: 0.9; margin-top: 3px; }
+        .chat-status { display: flex; align-items: center; justify-content: center; font-size: 12px; margin-top: 6px; }
+        .status-dot-ai { color: #90EE90; margin-right: 5px; }
+
+        .chat-container-main {
+            flex: 1; overflow-y: auto; padding: 15px;
+            display: flex; flex-direction: column; gap: 12px;
+            background-color: var(--ai-bg-light);
+        }
+        .message {
+            max-width: 75%; padding: 12px 15px; border-radius: 16px;
+            position: relative; animation: fadeIn 0.25s ease;
+            word-wrap: break-word;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px);}
+            to 	{ opacity: 1; transform: translateY(0);}
+        }
+        .user-message {
+            align-self: flex-end;
+            background: linear-gradient(135deg, #E8F5E8 0%, #D4EDDA 100%);
+            border-bottom-right-radius: 6px;
+        }
+        .bot-message {
+            align-self: flex-start;
+            background: linear-gradient(135deg, #F0F8FF 0%, #E6F3FF 100%);
+            border-bottom-left-radius: 6px;
+        }
+        .message-header { display: flex; align-items: center; margin-bottom: 5px; }
+        .avatar { font-size: 16px; margin-right: 6px; }
+        .username { font-weight: bold; font-size: 13px; }
+        .user-message .username { color: var(--ai-dark-green); }
+        .bot-message .username { color: #4169E1; }
+        .message-content { font-size: 14px; line-height: 1.5; }
+        .timestamp { font-size: 11px; color: #666; text-align: right; margin-top: 4px; }
+
+        .input-area {
+            background: white; border-top: 1px solid #dee2e6;
+            padding: 12px; display: flex; gap: 8px;
+        }
+        .chat-input {
+            flex: 1; border: 2px solid #e9ecef; border-radius: 10px;
+            padding: 10px 12px; font-size: 14px; resize: none;
+            height: 55px; outline: none; transition: border-color 0.3s;
+        }
+        .chat-input:focus { border-color: var(--ai-dark-green); }
+        .btn-ai {
+            border: none; border-radius: 10px; padding: 0 16px;
+            font-size: 14px; font-weight: bold; cursor: pointer;
+            transition: all 0.3s; height: 55px; display: flex;
+            align-items: center; justify-content: center;
+        }
+        .btn-send { background: linear-gradient(135deg,var(--ai-dark-green),#228B22); color: white; }
+        .btn-send:hover { background: linear-gradient(135deg,#228B22,#1c6b34);}
+        .btn-clear { background: #6c757d; color: white; }
+        .btn-clear:hover { background: #5a6268; }
+        .btn-ai:disabled { background: #ced4da; color: #6c757d; cursor: not-allowed; }
+
+        .typing-indicator {
+            align-self: flex-start; color: #6c757d; font-style: italic;
+            padding: 8px 12px; animation: pulse 1.4s infinite;
+        }
+        @keyframes pulse {0%{opacity:.6;}50%{opacity:1;}100%{opacity:.6;}}
+
+        .welcome-container {
+            text-align: center; padding: 15px; margin: 10px 0;
+            background: white; border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .welcome-icon { font-size: 34px; margin-bottom: 10px; }
+        .welcome-title { font-size: 18px; font-weight: bold; margin-bottom: 8px; color:var(--ai-dark-green);}
+        .welcome-text { font-size: 14px; line-height: 1.5; text-align: left; }
+        
+        .example-button {
+            background:#e9ecef;border:none;border-radius:16px;padding:6px 12px;font-size:13px;cursor:pointer;
+            transition: background 0.2s;
+        }
+        .example-button:hover {
+            background: #d4edda;
+        }
+
+        ::-webkit-scrollbar { width: 7px; }
+        ::-webkit-scrollbar-thumb { background:#c1c1c1; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background:#a8a8a8; }
+
+        /* Media Queries for Chat Widget */
+        @media (max-width: 500px) {
+            .chat-widget-container {
+                right: 10px;
+                bottom: 80px;
+                width: 95vw;
+                height: 80vh;
+            }
+            .chat-trigger {
+                bottom: 20px;
+                right: 20px;
+            }
+            .message { max-width: 85%; }
+            .input-area { flex-direction: column; }
+            .btn-ai { width: 100%; margin-top: 8px; }
+            .chat-input { height: 70px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-leaf"></i>
+                <span>Farm IQ</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#solutions">Solutions</a></li>
+                    <li><a href="index.html#yield-prediction" class="active">Yield Prediction</a></li>
+                    <li><a href="index.html#heatmap">Heatmaps</a></li>
+                    <li><a href="index.html#chatbot">Chatbot</a></li>
+                    <li><a href="index.html#about">About Us</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="try-btn">Try Farm IQ</button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Dashboard Controls -->
+        <div class="dashboard-controls">
+            <h1 class="page-title">Crop Yield Prediction Dashboard</h1>
+            <div class="filters">
+                <button class="filter-btn active" data-filter="status" data-value="all">All Cases</button>
+                <button class="filter-btn" data-filter="status" data-value="active">Active Cases</button>
+                <button class="filter-btn" data-filter="status" data-value="solved">Solved Cases</button>
+                
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="locationSearch" placeholder="Search by location...">
+                </div>
+                <select id="severityFilter" class="select-filter">
+                    <option value="all">All Severity</option>
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                </select>
+                <select id="locationFilter" class="select-filter">
+                    <option value="all">All Locations</option>
+                    <!-- Options populated by JS -->
+                </select>
+            </div>
+        </div>
+
+        <!-- Camera Grid -->
+        <div id="cameraGrid" class="camera-grid">
+            <!-- Camera Cards will be injected here by JavaScript -->
+        </div>
+
+        <!-- Camera Management -->
+        <section class="camera-management">
+            <h2 class="section-title">Camera Management</h2>
+            <div class="management-actions">
+                <button id="addNewCameraBtn" class="action-btn primary">
+                    <i class="fas fa-plus"></i> Add New Camera
+                </button>
+                <button id="manageCamerasBtn" class="action-btn">
+                    <i class="fas fa-cog"></i> Manage Existing Cameras
+                </button>
+                <button class="action-btn">
+                    <i class="fas fa-sliders-h"></i> Live Feed Configuration
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal for Issue Details (View Details) -->
+    <div class="modal-overlay" id="issueModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="issueModalTitle"><i class="fas fa-exclamation-triangle"></i> Issue Details</h2>
+                <button class="close-modal close-issue-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="details-section">
+                    <!-- Details Grid for key facts (Dynamically updated by JS in full app) -->
+                    <div class="details-grid">
+                        <p><strong>Issue ID:</strong> #12039</p>
+                        <p><strong>Date Detected:</strong> June 14, 2023</p>
+                        <p><strong>Area:</strong> Greenhouse 1: Row 4</p>
+                        <p><strong>Type:</strong> Nutrient Deficiency</p>
+                        <p><strong>Severity:</strong> <span class="severity high severity-high">High</span></p>
+                        <p><strong>Predicted Yield Impact:</strong> 15% reduction</p>
+                    </div>
+                    
+                    <!-- Description Box -->
+                    <h3>Issue Description</h3>
+                    <p class="description-box">
+                        Visual analysis confirms advanced signs of Nitrogen deficiency. Leaves are pale green/yellow, starting from older growth. Intervention required within 48 hours.
+                    </p>
+                    
+                    <!-- Image Gallery -->
+                    <h3>Visual Evidence</h3>
+                    <div class="image-gallery">
+                        <img src="https://placehold.co/200x120/4caf50/ffffff?text=Current+View+A" alt="Current Crop View">
+                        <img src="https://placehold.co/200x120/ff9800/ffffff?text=NDVI+Scan" alt="NDVI Scan">
+                        <img src="https://placehold.co/200x120/f44336/ffffff?text=Hyperspectral+Data" alt="Hyperspectral Data">
+                    </div>
+                </div>
+
+                <!-- Mitigation Section -->
+                <div class="mitigation-section">
+                    <h3>Mitigation & Resolution</h3>
+                    <div class="mitigation-status">
+                        <i class="fas fa-hourglass-half status-icon pending"></i>
+                        <p><strong>Status:</strong> Pending Mitigation</p>
+                    </div>
+                    
+                    <div class="setup-group">
+                        <label>Select Action Taken</label>
+                        <select>
+                            <option>Apply high-nitrogen fertilizer</option>
+                            <option>Test soil pH</option>
+                            <option>Adjust irrigation schedule</option>
+                        </select>
+                    </div>
+                    
+                    <div class="setup-group">
+                        <label>Assigned To</label>
+                        <input type="text" placeholder="Team member name or ID">
+                    </div>
+                    
+                    <textarea placeholder="Record notes, resources used, and outcome..."></textarea>
+                    
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="nav-arrows">
+                    <div class="nav-arrow"><i class="fas fa-chevron-left"></i></div>
+                    <div class="nav-arrow"><i class="fas fa-chevron-right"></i></div>
+                </div>
+                <div>
+                    <span class="see-all-btn">See All Issues</span>
+                    <button class="record-btn">Record Mitigation</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal for Add New Camera -->
+    <div class="modal-overlay" id="addCameraModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Set Up New Camera</h2>
+                <button class="close-modal close-setup-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="setup-group">
+                    <label>Camera Type</label>
+                    <select id="cameraType" onchange="toggleCameraFields()">
+                        <option value="webcam">Local Webcam (Live Feed)</option>
+                        <option value="ip_iot">IP / IoT Camera (RTSP/URL)</option>
+                    </select>
+                </div>
+                
+                <div class="setup-group" id="webcamSelectGroup">
+                    <label>Select Webcam Device</label>
+                    <select id="webcamDeviceSelect" onchange="startWebcamPreview(this.value)">
+                        <option value="">-- No camera selected --</option>
+                    </select>
+                </div>
+
+                <div class="setup-group" id="ipUrlGroup" style="display: none;">
+                    <label>IP / RTSP / Stream URL</label>
+                    <input type="text" id="ipUrlInput" placeholder="e.g., rtsp://user:pass@192.168.1.10/stream">
+                </div>
+
+                <div class="setup-group">
+                    <label>Live Preview</label>
+                    <video id="webcamPreview" autoplay muted playsinline></video>
+                </div>
+                
+                <hr style="margin: 20px 0; border-color: var(--medium-gray);">
+                
+                <div class="setup-group">
+                    <label for="cameraName">Camera Name (Location)</label>
+                    <input type="text" id="cameraName" placeholder="e.g., Greenhouse 3: Row 1">
+                </div>
+
+                <div class="setup-group">
+                    <label for="farmLocation">Farm Location</label>
+                    <select id="farmLocation" onchange="toggleNewFarmInput(this.value)">
+                        <option value="all">-- Select Farm Location --</option>
+                        <!-- Options populated by JS -->
+                        <option value="addNewFarm">Add New Farm Location...</option>
+                    </select>
+                </div>
+                
+                <!-- New Farm Location Input -->
+                <div class="setup-group" id="newFarmInputGroup" style="display: none;">
+                    <label for="newFarmLocation">New Farm Location Name</label>
+                    <input type="text" id="newFarmLocation" placeholder="e.g., East Block Vineyard">
+                </div>
+
+                <div class="setup-group">
+                    <label for="initialSeverity">Initial Severity (optional)</label>
+                    <select id="initialSeverity">
+                        <option value="low">Low</option>
+                        <option value="medium">Medium</option>
+                        <option value="high">High</option>
+                    </select>
+                </div>
+
+                <div class="setup-btn-group">
+                    <button class="action-btn" onclick="stopWebcamPreview(); closeModal('addCameraModal')">Cancel</button>
+                    <button class="action-btn primary" onclick="addCameraToDashboard()">Add Camera</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal for Manage Existing Cameras -->
+    <div class="modal-overlay" id="manageCamerasModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Manage Existing Cameras</h2>
+                <button class="close-modal close-manage-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="managementList">
+                    <p style="text-align: center; color: var(--text-light);">Loading cameras...</p>
+                    <!-- Camera list will be injected here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- AI ASSISTANT WIDGET TRIGGER -->
+    <div class="chat-trigger" id="chatTrigger">
+        <i class="fas fa-robot"></i>
+        Ask our AI Assistant
+    </div>
+    
+    <!-- AI ASSISTANT WIDGET FLOATING WINDOW -->
+    <div class="chat-widget-container" id="chatWidgetContainer">
+        <div class="chat-header">
+            <h1>🌱 FarmIQ AI Assistant</h1>
+            <p>Your intelligent farming companion</p>
+            <div class="chat-status"><span class="status-dot-ai">●</span><span>Online - Ready to help</span></div>
+        </div>
+
+        <div class="chat-container-main" id="chatContainer">
+            <div class="welcome-container">
+                <div class="welcome-icon">🤖</div>
+                <div class="welcome-title">Hello! I'm FarmIQ AI</div>
+                <div class="welcome-text">
+                    I'm your intelligent farming assistant. I can help you with:
+                    <br><br>
+                    🌾 Crop management advice<br>
+                    🌤️ Weather-related farming decisions<br>
+                    💧 Irrigation planning<br>
+                    🐛 Pest control solutions<br>
+                    📊 Market insights<br>
+                    🔬 Agricultural best practices<br><br>
+                    What would you like to know about farming today?
+                </div>
+            </div>
+            <!-- Chat messages go here -->
+        </div>
+
+        <div class="input-area">
+            <textarea class="chat-input" id="chatInput" placeholder="Ask me anything about farming..."></textarea>
+            <button class="btn-ai btn-send" id="sendBtn">Send</button>
+            <button class="btn-ai btn-clear" id="clearBtn">Clear</button>
+        </div>
+    </div>
+
+    <script>
+        // --- Core Application Data ---
+        // 'isEnabled' tracks the disable/enable status. 'status' tracks active/solved cases.
+        let cameras = [
+            { id: 1, location: "Greenhouse 1: Row 4", farm: "Greenhouse 1", status: "active", severity: "high", lastUpdate: "June 14, 2023 / 18:00", isWebcam: false, isEnabled: true, imgSrc: "https://images.unsplash.com/photo-1595341888016-a392ef81b7de?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" },
+            { id: 2, location: "Field A: Section 3", farm: "Field A", status: "active", severity: "medium", lastUpdate: "June 13, 2023 / 14:30", isWebcam: false, isEnabled: true, imgSrc: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" },
+            { id: 3, location: "Greenhouse 2: Row 7", farm: "Greenhouse 2", status: "solved", severity: "low", lastUpdate: "June 12, 2023 / 09:15", isWebcam: false, isEnabled: true, imgSrc: "https://images.unsplash.com/photo-1578303512597-81d9d030d32b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" },
+            { id: 4, location: "Field B: Section 2", farm: "Field B", status: "active", severity: "high", lastUpdate: "June 10, 2023 / 11:45", isWebcam: false, isEnabled: true, imgSrc: "https://images.unsplash.com/photo-1626628150115-ec79549c4c04?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" },
+        ];
+
+        let currentFilters = {
+            status: 'all',
+            severity: 'all',
+            location: 'all',
+            search: ''
+        };
+
+        const cameraGrid = document.getElementById('cameraGrid');
+        const filterStatusButtons = document.querySelectorAll('.filter-btn[data-filter="status"]');
+        const severityFilter = document.getElementById('severityFilter');
+        const locationFilter = document.getElementById('locationFilter');
+        const locationSearch = document.getElementById('locationSearch');
+        const addNewCameraBtn = document.getElementById('addNewCameraBtn');
+        const manageCamerasBtn = document.getElementById('manageCamerasBtn');
+        const addCameraModal = document.getElementById('addCameraModal');
+        const manageCamerasModal = document.getElementById('manageCamerasModal');
+        const webcamPreview = document.getElementById('webcamPreview');
+        const webcamDeviceSelect = document.getElementById('webcamDeviceSelect');
+        const issueModal = document.getElementById('issueModal');
+        const issueModalCloseBtns = document.querySelectorAll('.close-issue-modal');
+        const setupModalCloseBtns = document.querySelectorAll('.close-setup-modal');
+        const manageModalCloseBtns = document.querySelectorAll('.close-manage-modal');
+        
+        let activeStream = null;
+        let activeWebcamStreams = {}; // To track streams for cards
+
+
+        // --- Utility Functions (Modals) ---
+
+        function openModal(id) {
+            document.getElementById(id).classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(id) {
+            document.getElementById(id).classList.remove('active');
+            document.body.style.overflow = 'auto';
+            if (id === 'addCameraModal') {
+                stopWebcamPreview();
+            }
+        }
+        
+        // --- Webcam / Camera Setup Functions (Fix Applied Here) ---
+
+        async function listWebcamDevices() {
+            webcamDeviceSelect.innerHTML = '<option value="">-- Select a camera --</option>';
+            let tempStream = null; // Variable to hold the temporary stream
+            try {
+                // 1. Request initial media access to populate labels correctly and get device labels.
+                // Requesting video allows the browser to populate device labels.
+                tempStream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
+                
+                // 2. IMMEDIATELY stop the temporary stream to release the camera resource.
+                if (tempStream) {
+                    tempStream.getTracks().forEach(track => track.stop());
+                }
+
+                // 3. Enumerate devices now that permission is granted and labels are visible
+                const devices = await navigator.mediaDevices.enumerateDevices();
+                const videoDevices = devices.filter(device => device.kind === 'videoinput');
+                
+                if (videoDevices.length === 0) {
+                     webcamDeviceSelect.innerHTML = '<option value="" disabled>No video devices found.</option>';
+                     return;
+                }
+                
+                videoDevices.forEach(device => {
+                    const option = document.createElement('option');
+                    option.value = device.deviceId;
+                    // Use device label if available, otherwise a generic name
+                    option.textContent = device.label || `Camera ${webcamDeviceSelect.options.length + 1}`; 
+                    webcamDeviceSelect.appendChild(option);
+                });
+                
+            } catch (error) {
+                console.error("Error listing devices:", error);
+                // Ensure stream is stopped even if enumeration fails after getting media
+                if (tempStream) {
+                    tempStream.getTracks().forEach(track => track.stop());
+                }
+                // Non-intrusive message in the select
+                webcamDeviceSelect.innerHTML = '<option value="" disabled>Camera access denied or not available.</option>';
+            }
+        }
+        
+        async function startWebcamPreview(deviceId) {
+            stopWebcamPreview(); // Stop any existing stream
+            webcamPreview.style.display = 'block';
+
+            if (!deviceId) {
+                webcamPreview.style.display = 'none';
+                return;
+            }
+
+            try {
+                const constraints = {
+                    video: { deviceId: deviceId ? { exact: deviceId } : undefined }
+                };
+                activeStream = await navigator.mediaDevices.getUserMedia(constraints);
+                webcamPreview.srcObject = activeStream;
+                webcamPreview.play();
+            } catch (error) {
+                console.error("Error starting webcam stream:", error);
+                webcamPreview.style.display = 'none';
+                // In a production environment, this would be a custom modal.
+            }
+        }
+
+        function stopWebcamPreview() {
+            if (activeStream) {
+                activeStream.getTracks().forEach(track => track.stop());
+                activeStream = null;
+                webcamPreview.srcObject = null;
+            }
+        }
+
+        function toggleCameraFields() {
+            const cameraType = document.getElementById('cameraType').value;
+            document.getElementById('webcamSelectGroup').style.display = cameraType === 'webcam' ? 'block' : 'none';
+            document.getElementById('ipUrlGroup').style.display = cameraType === 'ip_iot' ? 'block' : 'none';
+            
+            if (cameraType === 'webcam') {
+                listWebcamDevices();
+                // We won't auto-start preview here, the user must select a device from the dropdown.
+                // startWebcamPreview(webcamDeviceSelect.value); // Removed auto-start
+            } else {
+                stopWebcamPreview();
+                webcamPreview.style.display = 'none';
+            }
+        }
+        
+        function toggleNewFarmInput(selectedValue) {
+            const newFarmInputGroup = document.getElementById('newFarmInputGroup');
+            newFarmInputGroup.style.display = selectedValue === 'addNewFarm' ? 'block' : 'none';
+        }
+
+
+        function addCameraToDashboard() {
+            const type = document.getElementById('cameraType').value;
+            const name = document.getElementById('cameraName').value.trim();
+            const farmLocationSelect = document.getElementById('farmLocation');
+            const newFarmInput = document.getElementById('newFarmLocation').value.trim();
+            let farm = farmLocationSelect.value;
+            
+            if (farm === 'addNewFarm') {
+                farm = newFarmInput;
+            }
+
+            const severity = document.getElementById('initialSeverity').value;
+            const url = document.getElementById('ipUrlInput').value.trim();
+            const deviceId = document.getElementById('webcamDeviceSelect').value;
+
+            if (!name || farm === 'all' || !farm) {
+                console.error("Please provide a Camera Name and select or enter a Farm Location.");
+                return;
+            }
+            
+            if (farm === 'addNewFarm' && !newFarmInput) {
+                console.error("Please provide a name for the new farm location.");
+                return;
+            }
+
+            if (type === 'webcam' && !deviceId) {
+                 console.error("Please select a webcam device.");
+                return;
+            }
+
+
+            const newCamera = {
+                id: Date.now(),
+                location: name,
+                farm: farm,
+                status: 'active',
+                severity: severity,
+                lastUpdate: new Date().toLocaleTimeString(),
+                isWebcam: type === 'webcam',
+                isEnabled: true,
+                imgSrc: type === 'ip_iot' ? (url || "https://placehold.co/600x400/757575/ffffff?text=Stream+Not+Available") : null,
+                stream: null,
+                deviceId: type === 'webcam' ? deviceId : null
+            };
+
+            // 1. Update Camera List
+            cameras.push(newCamera);
+            
+            // 2. Update Location Filters if a new farm was added
+            if (farmLocationSelect.value === 'addNewFarm' || farmLocationSelect.options[farmLocationSelect.selectedIndex].text !== farm) {
+                 // Re-populate the filter lists with the new farm
+                populateLocationFilters();
+            }
+
+            // 3. Close and Reset
+            closeModal('addCameraModal');
+            document.getElementById('cameraName').value = '';
+            document.getElementById('ipUrlInput').value = '';
+            document.getElementById('newFarmLocation').value = '';
+            farmLocationSelect.value = 'all';
+            toggleNewFarmInput('all');
+
+
+            // 4. Re-render the grid immediately
+            applyFilters();
+        }
+
+        // --- Camera Management Functions ---
+        
+        function stopAllCardStreams() {
+            Object.values(activeWebcamStreams).forEach(stream => {
+                if (stream) {
+                    stream.getTracks().forEach(track => track.stop());
+                }
+            });
+            activeWebcamStreams = {};
+        }
+        
+        function deleteCamera(id) {
+            // Using a custom confirmation message as native alerts are discouraged
+            if (!confirm(`Are you sure you want to delete camera ID ${id}? This action is permanent.`)) return;
+
+            cameras = cameras.filter(c => c.id !== id);
+            
+            // Stop stream if it was active
+            if (activeWebcamStreams[id]) {
+                activeWebcamStreams[id].getTracks().forEach(track => track.stop());
+                delete activeWebcamStreams[id];
+            }
+            
+            renderManagementList(); // Update management view
+            applyFilters();         // Update dashboard view
+            populateLocationFilters(); // Update filters in case a farm location is now empty
+        }
+
+        function toggleCameraStatus(id) {
+            const camera = cameras.find(c => c.id === id);
+            if (!camera) return;
+
+            camera.isEnabled = !camera.isEnabled;
+            
+            // If disabled, stop the stream
+            if (!camera.isEnabled && activeWebcamStreams[id]) {
+                 activeWebcamStreams[id].getTracks().forEach(track => track.stop());
+                 delete activeWebcamStreams[id];
+            }
+            
+            renderManagementList(); // Update management view
+            applyFilters();         // Update dashboard view
+        }
+        
+        function reconfigureCamera(id) {
+            console.log(`Reconfiguring camera ID ${id}. This would typically open the setup modal pre-filled with the camera's current details.`);
+            // In a full app, this would open the addCameraModal and pre-fill its fields.
+            // Using console log instead of alert for non-critical feedback
+            console.log("Reconfigure option clicked. In a full app, the setup form would open here.");
+        }
+
+        function renderManagementList() {
+            const listContainer = document.getElementById('managementList');
+            listContainer.innerHTML = '';
+
+            if (cameras.length === 0) {
+                listContainer.innerHTML = '<p style="grid-column: 1 / -1; text-align: center; padding: 50px; color: var(--text-light);">No cameras configured yet. Add one above!</p>';
+                return;
+            }
+
+            cameras.forEach(camera => {
+                const item = document.createElement('div');
+                item.className = 'management-item';
+                
+                const currentStatus = camera.isEnabled ? 'Enabled' : 'Disabled';
+                const toggleAction = camera.isEnabled ? 'Disable' : 'Enable';
+                const toggleClass = camera.isEnabled ? 'disable-btn' : 'disable-btn active';
+                
+                item.innerHTML = `
+                    <span class="camera-name-manage">${camera.location} (${camera.farm})</span>
+                    <span class="camera-status-manage">${currentStatus}</span>
+                    <div class="management-actions-row">
+                        <button class="${toggleClass}" onclick="toggleCameraStatus(${camera.id})">
+                            ${toggleAction}
+                        </button>
+                        <button class="action-btn" onclick="reconfigureCamera(${camera.id})">
+                            Configure
+                        </button>
+                        <button class="delete-btn" onclick="deleteCamera(${camera.id})">
+                            Delete
+                        </button>
+                    </div>
+                `;
+                listContainer.appendChild(item);
+            });
+        }
+        
+        function openManageCamerasModal() {
+            openModal('manageCamerasModal');
+            renderManagementList();
+        }
+
+
+        // --- Camera Rendering and Filtering ---
+
+        function getSeverityClass(severity) {
+            return {
+                'low': 'severity-low',
+                'medium': 'severity-medium',
+                'high': 'severity-high'
+            }[severity] || 'severity-low';
+        }
+
+        function getStatusBadgeClass(status) {
+            return {
+                'active': 'status-active',
+                'solved': 'status-solved',
+                'disabled': 'status-disabled'
+            }[status] || 'status-solved';
+        }
+
+        function createCameraCard(camera) {
+            const card = document.createElement('div');
+            card.className = 'camera-card' + (camera.isEnabled ? '' : ' disabled');
+            card.setAttribute('data-id', camera.id);
+            card.setAttribute('data-status', camera.status);
+            card.setAttribute('data-severity', camera.severity);
+            card.setAttribute('data-location', camera.location);
+            
+            // If disabled, short-circuit the feed and status
+            if (!camera.isEnabled) {
+                 card.innerHTML = `
+                    <div class="camera-header">
+                        <div class="camera-location">${camera.location}</div>
+                        <div class="severity-indicator ${getSeverityClass(camera.severity)}">${camera.severity.charAt(0).toUpperCase() + camera.severity.slice(1)}</div>
+                    </div>
+                    <div class="camera-feed">
+                        <div class="disabled-overlay"><i class="fas fa-pause"></i> Disabled</div>
+                    </div>
+                    <div class="camera-info">
+                        <div class="timestamp">Status: Disabled by User</div>
+                        <div class="camera-status">
+                            <span class="status-badge ${getStatusBadgeClass('disabled')}">Disabled</span>
+                            <span style="color:var(--text-light); font-size: 14px;">(Re-enable to view)</span>
+                        </div>
+                    </div>
+                `;
+                return card;
+            }
+
+            // Handle Webcam stream for the live card
+            let feedContent = '';
+            let currentStatus = camera.status;
+            let currentBadgeClass = getStatusBadgeClass(currentStatus);
+            
+            if (camera.isWebcam && camera.deviceId) {
+                feedContent = `<video id="video-${camera.id}" autoplay muted playsinline style="width:100%; height:100%;"></video>`;
+                
+                // Stop any previous stream for this card ID before starting a new one
+                if (activeWebcamStreams[camera.id]) {
+                    activeWebcamStreams[camera.id].getTracks().forEach(track => track.stop());
+                    delete activeWebcamStreams[camera.id];
+                }
+                
+                // Start the webcam stream right away
+                navigator.mediaDevices.getUserMedia({ video: { deviceId: { exact: camera.deviceId } } })
+                    .then(stream => {
+                        const videoElement = document.getElementById(`video-${camera.id}`);
+                        if (videoElement) {
+                            videoElement.srcObject = stream;
+                            activeWebcamStreams[camera.id] = stream; // Track the stream
+                        }
+                    })
+                    .catch(e => {
+                        console.error("Failed to start stream for card:", e);
+                        // Fallback message
+                        const videoContainer = card.querySelector('.camera-feed');
+                        videoContainer.innerHTML = `<i class="fas fa-video-slash" style="color:white; font-size: 30px;"></i>`;
+                        currentStatus = 'error';
+                        card.querySelector('.status-badge').textContent = 'Stream Error';
+                        card.querySelector('.status-badge').className = 'status-badge status-disabled';
+                    });
+            } else if (camera.imgSrc) {
+                feedContent = `<img src="${camera.imgSrc}" onerror="this.onerror=null;this.src='https://placehold.co/600x400/424242/ffffff?text=No+Image/Stream';" alt="Crop View">`;
+            } else {
+                feedContent = `<i class="fas fa-video-slash" style="color:white; font-size: 30px;"></i>`;
+            }
+
+
+            card.innerHTML = `
+                <div class="camera-header">
+                    <div class="camera-location">${camera.location}</div>
+                    <div class="severity-indicator ${getSeverityClass(camera.severity)}">${camera.severity.charAt(0).toUpperCase() + camera.severity.slice(1)}</div>
+                </div>
+                <div class="camera-feed">
+                    ${feedContent}
+                </div>
+                <div class="camera-info">
+                    <div class="timestamp">Last updated: ${camera.lastUpdate}</div>
+                    <div class="camera-status">
+                        <span class="status-badge ${currentBadgeClass}">${currentStatus === 'active' ? 'Active Issue' : 'Solved'}</span>
+                        <span class="view-details" data-issue="${camera.id}">View Details</span>
+                    </div>
+                </div>
+            `;
+            
+            // Add event listener for "View Details" (mocked)
+            card.querySelector('.view-details').addEventListener('click', (e) => {
+                e.stopPropagation(); // Prevent card hover/click on the card
+                document.getElementById('issueModalTitle').textContent = `<i class="fas fa-exclamation-triangle"></i> Issue Details: ${camera.location}`;
+                // This would be where you fetch and inject the actual details for the camera ID
+                openModal('issueModal');
+            });
+
+            return card;
+        }
+
+        function renderCameras(filteredCameras) {
+            // 1. Stop streams that are no longer in the filtered set
+            const currentIds = filteredCameras.map(c => c.id);
+            Object.keys(activeWebcamStreams).forEach(id => {
+                if (!currentIds.includes(parseInt(id))) {
+                    activeWebcamStreams[id].getTracks().forEach(track => track.stop());
+                    delete activeWebcamStreams[id];
+                }
+            });
+            
+            cameraGrid.innerHTML = '';
+            if (filteredCameras.length === 0) {
+                cameraGrid.innerHTML = '<p style="grid-column: 1 / -1; text-align: center; padding: 50px; color: var(--text-light);">No cameras match the current filters.</p>';
+                return;
+            }
+
+            filteredCameras.forEach(camera => {
+                // Only render enabled cameras that pass filters
+                if(camera.isEnabled || currentFilters.status === 'disabled') {
+                   cameraGrid.appendChild(createCameraCard(camera));
+                }
+            });
+        }
+
+        function applyFilters() {
+            let filtered = cameras.filter(camera => {
+                // 1. Status Filter (Includes isEnabled check)
+                let statusMatch = true;
+                if (currentFilters.status === 'active') {
+                    statusMatch = camera.status === 'active' && camera.isEnabled;
+                } else if (currentFilters.status === 'solved') {
+                    statusMatch = camera.status === 'solved' && camera.isEnabled;
+                } else if (currentFilters.status === 'disabled') {
+                    statusMatch = !camera.isEnabled;
+                } else { // 'all'
+                    statusMatch = true; 
+                }
+
+                // 2. Severity Filter (Only applies to enabled/active cameras)
+                const severityMatch = currentFilters.severity === 'all' || camera.severity === currentFilters.severity;
+
+                // 3. Location Filter (Dropdown)
+                const locationDropdownMatch = currentFilters.location === 'all' || camera.farm === currentFilters.location;
+
+                // 4. Search Bar Filter (Location/Name)
+                const searchMatch = currentFilters.search === '' || camera.location.toLowerCase().includes(currentFilters.search.toLowerCase()) || camera.farm.toLowerCase().includes(currentFilters.search.toLowerCase());
+
+                return statusMatch && severityMatch && locationDropdownMatch && searchMatch;
+            });
+
+            renderCameras(filtered);
+        }
+
+        function setupFilterListeners() {
+            // Status Buttons
+            filterStatusButtons.forEach(button => {
+                button.addEventListener('click', (e) => {
+                    filterStatusButtons.forEach(btn => btn.classList.remove('active'));
+                    e.target.classList.add('active');
+                    currentFilters.status = e.target.getAttribute('data-value');
+                    applyFilters();
+                });
+            });
+
+            // Severity Dropdown
+            severityFilter.addEventListener('change', (e) => {
+                currentFilters.severity = e.target.value;
+                applyFilters();
+            });
+
+            // Location Dropdown
+            locationFilter.addEventListener('change', (e) => {
+                currentFilters.location = e.target.value;
+                applyFilters();
+            });
+            
+            // Location Search Input
+            locationSearch.addEventListener('input', (e) => {
+                currentFilters.search = e.target.value.trim();
+                applyFilters();
+            });
+        }
+        
+        function populateLocationFilters() {
+            const farmLocations = [...new Set(cameras.map(c => c.farm))].sort();
+            
+            // Get current selected location before clearing
+            const currentFilterLocation = locationFilter.value;
+            const currentSetupLocation = document.getElementById('farmLocation').value;
+
+            // 1. Populate Dashboard Location Dropdown
+            locationFilter.innerHTML = '<option value="all">All Locations</option>';
+            farmLocations.forEach(farm => {
+                const option = document.createElement('option');
+                option.value = farm;
+                option.textContent = farm;
+                locationFilter.appendChild(option);
+            });
+            locationFilter.value = farmLocations.includes(currentFilterLocation) ? currentFilterLocation : 'all';
+            
+            // 2. Populate Camera Setup Modal Farm Location
+            const farmLocationSelect = document.getElementById('farmLocation');
+            farmLocationSelect.innerHTML = '<option value="all">-- Select Farm Location --</option>';
+            farmLocations.forEach(farm => {
+                const option = document.createElement('option');
+                option.value = farm;
+                option.textContent = farm;
+                farmLocationSelect.appendChild(option);
+            });
+            // Add the "Add New Farm" option last
+            const addNewOption = document.createElement('option');
+            addNewOption.value = 'addNewFarm';
+            addNewOption.textContent = 'Add New Farm Location...';
+            farmLocationSelect.appendChild(addNewOption);
+            
+            farmLocationSelect.value = (farmLocations.includes(currentSetupLocation) || currentSetupLocation === 'addNewFarm') ? currentSetupLocation : 'all';
+        }
+
+        /* ------------------------------------------------------------------ */
+        /* AI Assistant Logic (Merged) */
+        /* ------------------------------------------------------------------ */
+        const API_KEY = "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";
+        const DEFAULT_MODEL = "llama-3.1-8b-instant";
+        const chatContainer = document.getElementById('chatContainer');
+        const chatInput = document.getElementById('chatInput');
+        const sendBtn = document.getElementById('sendBtn');
+        const clearBtn = document.getElementById('clearBtn');
+        const chatTrigger = document.getElementById('chatTrigger');
+        const chatWidgetContainer = document.getElementById('chatWidgetContainer');
+
+        function toggleChatWidget() {
+            chatWidgetContainer.classList.toggle('active');
+            chatTrigger.style.display = chatWidgetContainer.classList.contains('active') ? 'none' : 'flex';
+            if (chatWidgetContainer.classList.contains('active')) {
+                chatInput.focus();
+                // When opened, check if we need to add example buttons
+                if (!document.querySelector('.example-button')) {
+                    addExampleButtons();
+                }
+            } else {
+                // When closed, show the trigger again
+                chatTrigger.style.display = 'flex';
+            }
+        }
+        
+        async function sendMessage() {
+            const userMsg = chatInput.value.trim();
+            if (!userMsg) return;
+            sendBtn.disabled = true; sendBtn.textContent = '...';
+            addMessage(userMsg,true); chatInput.value='';
+            removeExampleButtons(); // Remove examples once conversation starts
+            showTypingIndicator();
+            try {
+                const response = await callGroqAPI(userMsg);
+                removeTypingIndicator(); addMessage(response,false);
+            } catch (err) {
+                removeTypingIndicator(); addMessage(`⚠️ Error: ${err.message}`,false);
+            } finally {
+                sendBtn.disabled=false; sendBtn.textContent='Send';
+            }
+        }
+
+        async function callGroqAPI(prompt) {
+            // Using exponential backoff for robustness
+            const maxRetries = 3;
+            let delay = 1000;
+            
+            for (let i = 0; i < maxRetries; i++) {
+                try {
+                    const response = await fetch('https://api.groq.com/openai/v1/chat/completions',{
+                        method:'POST',
+                        headers:{'Authorization':`Bearer ${API_KEY}`,'Content-Type':'application/json'},
+                        body:JSON.stringify({
+                            messages:[{role:'system',content:"You are FarmIQ AI, a highly knowledgeable and supportive agricultural assistant. Your advice must be accurate, practical, and easy to understand for farm managers and personnel. Use simple formatting."},
+                                      {role:'user',content:prompt}],
+                            model:DEFAULT_MODEL, temperature:0.7, max_tokens:1024
+                        })
+                    });
+                    
+                    if(response.ok) {
+                        const data = await response.json();
+                        return data.choices[0].message.content;
+                    } else {
+                        throw new Error(`API error: ${response.status}`);
+                    }
+                } catch (error) {
+                    if (i === maxRetries - 1) {
+                        throw error; // Re-throw if last attempt failed
+                    }
+                    // Exponential backoff
+                    await new Promise(resolve => setTimeout(resolve, delay));
+                    delay *= 2; 
+                }
+            }
+        }
+
+        function addMessage(content,isUser){
+            const msg=document.createElement('div');
+            msg.className=`message ${isUser?'user-message':'bot-message'}`;
+            const time=new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'});
+            msg.innerHTML=`
+                <div class="message-header">
+                    <span class="avatar">${isUser?'👨‍🌾':'🤖'}</span>
+                    <span class="username">${isUser?'Farmer':'FarmIQ AI'}</span>
+                </div>
+                <div class="message-content">${content.replace(/\n/g,'<br>')}</div>
+                <div class="timestamp">${time}</div>`;
+            chatContainer.appendChild(msg); scrollToBottom();
+        }
+
+        function addExampleButtons() {
+            const examples=["Best crops for tropical climate?","Prevent pests in tomatoes","Optimal irrigation for corn","How weather affects yield"];
+            const box=document.createElement('div');
+            box.id = 'exampleButtons';
+            box.style.padding='12px'; box.style.textAlign='center';
+            box.innerHTML=`<p style="color:#666;margin-bottom:8px;">Try asking:</p>
+            <div style="display:flex;flex-wrap:wrap;gap:6px;justify-content:center;">
+            ${examples.map(q=>`<button class="example-button" onclick="chatInput.value='${q}';chatInput.focus();">${q}</button>`).join('')}</div>`;
+            chatContainer.appendChild(box);
+            scrollToBottom();
+        }
+
+        function removeExampleButtons() {
+            const examples = document.getElementById('exampleButtons');
+            if (examples) examples.remove();
+        }
+        
+        function showTypingIndicator(){
+            const t=document.createElement('div'); t.className='typing-indicator'; t.id='typingIndicator';
+            t.textContent='FarmIQ AI is typing...'; chatContainer.appendChild(t); scrollToBottom();
+        }
+        function removeTypingIndicator(){const t=document.getElementById('typingIndicator'); if(t) t.remove();}
+        function clearChat(){
+            const welcome=document.querySelector('.welcome-container').cloneNode(true);
+            chatContainer.innerHTML=''; 
+            if(welcome) chatContainer.appendChild(welcome); 
+            addExampleButtons(); // Re-add examples
+            chatContainer.scrollTop=0;
+        }
+        function scrollToBottom(){ chatContainer.scrollTop=chatContainer.scrollHeight; }
+
+
+        // --- Initialization ---
+
+        window.onload = function() {
+            // 1. Setup Filters and Render Initial Grid
+            populateLocationFilters();
+            setupFilterListeners();
+            applyFilters();
+            
+            // 2. Setup Modal Handlers
+            addNewCameraBtn.addEventListener('click', () => {
+                openModal('addCameraModal');
+                toggleCameraFields(); 
+            });
+            
+            manageCamerasBtn.addEventListener('click', openManageCamerasModal);
+
+            issueModalCloseBtns.forEach(btn => btn.addEventListener('click', () => closeModal('issueModal')));
+            setupModalCloseBtns.forEach(btn => btn.addEventListener('click', () => closeModal('addCameraModal')));
+            manageModalCloseBtns.forEach(btn => btn.addEventListener('click', () => closeModal('manageCamerasModal')));
+            
+            // Close modal when clicking outside the content
+            document.querySelectorAll('.modal-overlay').forEach(overlay => {
+                overlay.addEventListener('click', (e) => {
+                    if (e.target === overlay) {
+                        closeModal(overlay.id);
+                        // Stop streams if closing the camera setup/management modal
+                        if (overlay.id === 'addCameraModal' || overlay.id === 'manageCamerasModal') {
+                             stopAllCardStreams();
+                        }
+                    }
+                });
+            });
+
+            // 3. Setup AI Assistant Handlers
+            chatTrigger.addEventListener('click', toggleChatWidget);
+            chatInput.focus();
+            sendBtn.addEventListener('click', sendMessage);
+            clearBtn.addEventListener('click', clearChat);
+            chatInput.addEventListener('keydown', e => {
+                if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); }
+            });
+            
+            // Add initial example buttons on load
+            addExampleButtons(); 
+
+        };
+        
+        // Expose functions globally for HTML onclick attributes
+        window.toggleCameraStatus = toggleCameraStatus;
+        window.deleteCamera = deleteCamera;
+        window.reconfigureCamera = reconfigureCamera;
+        window.addCameraToDashboard = addCameraToDashboard;
+        window.toggleNewFarmInput = toggleNewFarmInput;
+        window.startWebcamPreview = startWebcamPreview;
+        window.stopWebcamPreview = stopWebcamPreview;
+        window.closeModal = closeModal; // For cancel buttons
+        window.alert = function(message) { console.warn("UI Alert (Not using native browser alert): " + message); }; // Custom stub for alert
+        
+        // Expose confirm() stub
+        window.confirm = function(message) { return window.prompt(message + " (Type 'yes' to confirm)", "no").toLowerCase() === 'yes'; };
+    </script>
+</body>
+</html>
